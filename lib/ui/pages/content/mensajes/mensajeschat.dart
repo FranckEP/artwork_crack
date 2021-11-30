@@ -74,7 +74,7 @@ class _ChatScreenState extends State<ChatScreen> {
                           ),
                           filled: true,
                           fillColor: Colors.white,
-                          hintText: 'say something...',
+                          hintText: 'Say something...',
                           hintStyle: const TextStyle(
                             color: Colors.black,
                           )),
@@ -88,7 +88,7 @@ class _ChatScreenState extends State<ChatScreen> {
                         onPressed: () {
                           // function when send button is pressed
                           var now = DateTime.now();
-                          print("send button pressed");
+                          print("Send button pressed");
                           print(message);
                           messageTextEditingController.clear();
                         },

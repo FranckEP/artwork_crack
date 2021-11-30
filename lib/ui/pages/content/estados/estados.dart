@@ -1,5 +1,7 @@
+import 'package:artwork_crack/ui/pages/Controllers/states_control.dart';
 import 'package:artwork_crack/ui/pages/content/estados/widgets/estadoscard.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 class Estados extends StatefulWidget {
   const Estados({Key? key}) : super(key: key);
@@ -9,18 +11,21 @@ class Estados extends StatefulWidget {
 }
 
 class _State extends State<Estados> {
-  final items = List<String>.generate(20, (i) => "Item $i");
 
   @override
   Widget build(BuildContext context) {
-    return ListView.builder(
-      itemCount: items.length,
-      itemBuilder: (context, index){
-        return const StateCard(
-          title: 'Juan Pérez', 
-          content: 'Hice un nuevo arte, vayan a mi perfíl o a la zona de arte social a verlo.',
-          picUrl: 'https://uifaces.co/our-content/donated/gPZwCbdS.jpg',
-        );
+    return GetX<ContenidoController>(
+      builder:(controller){
+        return ListView.builder(
+        itemCount: controller.listStates.length,
+        itemBuilder: (context, index){
+          return StateCard(
+            title: controller.listStates[index][0], 
+            content: controller.listStates[index][1],
+            picUrl: controller.listStates[index][2],
+          );
+        }
+      );
       }
     );
   }

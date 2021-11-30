@@ -1,5 +1,6 @@
 import 'package:artwork_crack/ui/pages/content/estados/widgets/cont_estados.dart';
 import 'package:flutter/material.dart';
+import 'package:like_button/like_button.dart';
 
 class StateCard extends StatelessWidget { 
   final String title, content, picUrl;
@@ -28,6 +29,7 @@ class StateCard extends StatelessWidget {
             ),
         ),
       ),
+      topRightWidget: const LikeButton(),
     );
   }
 }

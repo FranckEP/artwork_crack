@@ -1,5 +1,7 @@
+import 'package:artwork_crack/ui/pages/Controllers/states_control.dart';
 import 'package:artwork_crack/ui/pages/content/arte_social/widgets/socialcard.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 class arteSocial extends StatefulWidget {
   const arteSocial({Key? key}) : super(key: key);
@@ -9,19 +11,22 @@ class arteSocial extends StatefulWidget {
 }
 
 class _arteSocialState extends State<arteSocial> {
-  final items = List<String>.generate(20, (i) => "Item $i");
 
   @override
   Widget build(BuildContext context) {
-    return ListView.builder(
-      itemCount: items.length,
-      itemBuilder: (context, index){
-        return const socialCard(
-          title: 'Franck Peñaloza', 
-          imagenicon: 'https://uifaces.co/our-content/donated/4l5I7teR.jpg',
-          imagen: 'https://media.admagazine.com/photos/618a6acbcc7069ed5077ca7f/master/w_1600%2Cc_limit/68704.jpg',
-        );
-      },
+    return GetX<ContenidoController>(
+      builder:(controller){
+        return ListView.builder(
+        itemCount: controller.listStates.length,
+        itemBuilder: (context, index){
+          return socialCard(
+            title: controller.listArte[index][0], 
+            imagen: controller.listArte[index][1], 
+            imagenicon: controller.listArte[index][2],
+          );
+        }
+      );
+      }
     );
   }
 }

@@ -2,6 +2,7 @@ import 'package:artwork_crack/ui/pages/content/mensajes/mensajeschat.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_slidable/flutter_slidable.dart';
 import 'package:artwork_crack/ui/pages/content/mensajes/widgets/listamensajes.dart';
+import 'package:get/get.dart';
 
 class ChatListViewItem extends StatelessWidget {
   final NetworkImage image;
@@ -71,12 +72,7 @@ class ChatListViewItem extends StatelessWidget {
                     ],
                   ),
                   onTap: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => const ChatScreen(),
-                      ),
-                    );
+                    Get.to(()=>ChatScreen());
                   },
                 ),
               ),
