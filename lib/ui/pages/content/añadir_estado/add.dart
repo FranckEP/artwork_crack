@@ -42,7 +42,7 @@ class add extends StatelessWidget {
         FloatingActionButton(
           onPressed:() {
             statusController.addArte(
-              ['Juan Pérez', contentArteController.text, 'https://uifaces.co/our-content/donated/gPZwCbdS.jpg']
+              ['Franck Peñaloza', contentArteController.text, 'https://uifaces.co/our-content/donated/gPZwCbdS.jpg']
             );
             contentArteController.text='';
           },

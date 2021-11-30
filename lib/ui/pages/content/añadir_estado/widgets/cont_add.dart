@@ -20,6 +20,7 @@ class ContAdd extends StatelessWidget {
       children: [
         Card(
           child: Column(
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
               TextField(
@@ -38,6 +39,7 @@ class ContAdd extends StatelessWidget {
         ),
         Card(
           child: Column(
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
               TextField(
