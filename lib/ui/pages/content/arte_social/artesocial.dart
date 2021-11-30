@@ -17,7 +17,7 @@ class _arteSocialState extends State<arteSocial> {
     return GetX<ContenidoController>(
       builder:(controller){
         return ListView.builder(
-        itemCount: controller.listStates.length,
+        itemCount: controller.listArte.length,
         itemBuilder: (context, index){
           return socialCard(
             title: controller.listArte[index][0], 
