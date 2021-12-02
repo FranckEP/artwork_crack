@@ -41,7 +41,7 @@ class _ChatListPageViewState extends State<ChatListPageView> {
             ChatListViewItem(
               hasUnreadMessage: true,
               image: NetworkImage(
-                  'https://uifaces.co/our-content/donated/2Stzj6r-.jpg'),
+                  'https://media.admagazine.com/photos/618a6acbcc7069ed5077ca7f/master/w_1600%2Cc_limit/68704.jpg'),
               lastMessage:
                   "Lorem ipsum dolor sit amet. Sed pharetra ante a blandit ultrices.",
               name: "Bree Jarvis",
@@ -51,7 +51,7 @@ class _ChatListPageViewState extends State<ChatListPageView> {
             ChatListViewItem(
               hasUnreadMessage: true,
               image: NetworkImage(
-                  'https://uifaces.co/our-content/donated/2Stzj6r-.jpg'),
+                  'https://media.admagazine.com/photos/618a6acbcc7069ed5077ca7f/master/w_1600%2Cc_limit/68704.jpg'),
               lastMessage:
                   "Lorem ipsum dolor sit amet. Sed pharetra ante a blandit ultrices.",
               name: "Alex",
@@ -61,7 +61,7 @@ class _ChatListPageViewState extends State<ChatListPageView> {
             ChatListViewItem(
               hasUnreadMessage: false,
               image: NetworkImage(
-                  'https://uifaces.co/our-content/donated/2Stzj6r-.jpg'),
+                  'https://media.admagazine.com/photos/618a6acbcc7069ed5077ca7f/master/w_1600%2Cc_limit/68704.jpg'),
               lastMessage:
                   "Lorem ipsum dolor sit amet. Sed pharetra ante a blandit ultrices.",
               name: "Carson Sinclair",
@@ -71,7 +71,7 @@ class _ChatListPageViewState extends State<ChatListPageView> {
             ChatListViewItem(
               hasUnreadMessage: false,
               image: NetworkImage(
-                  'https://uifaces.co/our-content/donated/2Stzj6r-.jpg'),
+                  'https://media.admagazine.com/photos/618a6acbcc7069ed5077ca7f/master/w_1600%2Cc_limit/68704.jpg'),
               lastMessage:
                   "Lorem ipsum dolor sit amet. Sed pharetra ante a blandit ultrices.",
               name: "Lucian Guerra",
@@ -81,7 +81,7 @@ class _ChatListPageViewState extends State<ChatListPageView> {
             ChatListViewItem(
               hasUnreadMessage: false,
               image: NetworkImage(
-                  'https://uifaces.co/our-content/donated/2Stzj6r-.jpg'),
+                  'https://media.admagazine.com/photos/618a6acbcc7069ed5077ca7f/master/w_1600%2Cc_limit/68704.jpg'),
               lastMessage:
                   "Lorem ipsum dolor sit amet. Sed pharetra ante a blandit ultrices.",
               name: "Sophia-Rose Bush",
@@ -91,7 +91,7 @@ class _ChatListPageViewState extends State<ChatListPageView> {
             ChatListViewItem(
               hasUnreadMessage: false,
               image: NetworkImage(
-                  'https://uifaces.co/our-content/donated/2Stzj6r-.jpg'),
+                  'https://media.admagazine.com/photos/618a6acbcc7069ed5077ca7f/master/w_1600%2Cc_limit/68704.jpg'),
               lastMessage:
                   "Lorem ipsum dolor sit amet. Sed pharetra ante a blandit ultrices.",
               name: "Mohammad",
@@ -101,7 +101,7 @@ class _ChatListPageViewState extends State<ChatListPageView> {
             ChatListViewItem(
               hasUnreadMessage: false,
               image: NetworkImage(
-                  'https://uifaces.co/our-content/donated/2Stzj6r-.jpg'),
+                  'https://media.admagazine.com/photos/618a6acbcc7069ed5077ca7f/master/w_1600%2Cc_limit/68704.jpg'),
               lastMessage:
                   "Lorem ipsum dolor sit amet. Sed pharetra ante a blandit ultrices.",
               name: "Jimi Cooke",

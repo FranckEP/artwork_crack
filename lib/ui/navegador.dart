@@ -42,11 +42,11 @@ class _ContentPageState extends State<ContentPage> {
         tile: Text(
           loginController.user.toString(),
           textAlign: TextAlign.left,
-          style: TextStyle(
-            color: const Color(0xff3A434D),
+          style: const TextStyle(
+            color: Color(0xff3A434D),
           ),
         ),
-        picUrl: 'https://uifaces.co/our-content/donated/2Stzj6r-.jpg',
+        picUrl: 'https://media.admagazine.com/photos/618a6acbcc7069ed5077ca7f/master/w_1600%2Cc_limit/68704.jpg',
       ),
       body: _widgetOptions.elementAt(_selectedIndex),
       bottomNavigationBar: BottomNavigationBar(
