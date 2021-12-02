@@ -25,7 +25,7 @@ class add extends StatelessWidget {
               statusController.addStates([
                 'Juan Pérez',
                 contentEditController.text,
-                'https://uifaces.co/our-content/donated/gPZwCbdS.jpg'
+                'https://media.admagazine.com/photos/618a6acbcc7069ed5077ca7f/master/w_1600%2Cc_limit/68704.jpg'
               ]);
               contentEditController.text = '';
             },
@@ -39,7 +39,7 @@ class add extends StatelessWidget {
               statusController.addArte([
                 'Franck Peñaloza',
                 contentArteController.text,
-                'https://uifaces.co/our-content/donated/gPZwCbdS.jpg'
+                'https://media.admagazine.com/photos/618a6acbcc7069ed5077ca7f/master/w_1600%2Cc_limit/68704.jpg'
               ]);
               contentArteController.text = '';
             },
