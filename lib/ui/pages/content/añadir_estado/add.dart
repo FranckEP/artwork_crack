@@ -14,49 +14,45 @@ class add extends StatelessWidget {
     TextEditingController contentArteController = TextEditingController();
 
     return Scaffold(
-      appBar: CustomAppBar(
-        context: context, 
-        tile: const Text('ArtWork Crack', 
-          textAlign: TextAlign.left, 
-          style: TextStyle(
-            color: Color(0xff3A434D),
-          ),
-        ), 
-        picUrl: 'https://uifaces.co/our-content/donated/2Stzj6r-.jpg',
-        ),
-      floatingActionButton: Positioned( 
+      floatingActionButton: Positioned(
         width: MediaQuery.of(context).size.width,
-        child: Row( 
-        children: <Widget>[
-      const SizedBox(width: 80,), 
-        FloatingActionButton(
-        onPressed:() {
-          statusController.addStates(
-            ['Juan Pérez', contentEditController.text, 'https://uifaces.co/our-content/donated/gPZwCbdS.jpg']
-          );
-          contentEditController.text='';
-        },
-        child: const Icon(Icons.add),
+        child: Row(children: <Widget>[
+          const SizedBox(
+            width: 80,
+          ),
+          FloatingActionButton(
+            onPressed: () {
+              statusController.addStates([
+                'Juan Pérez',
+                contentEditController.text,
+                'https://uifaces.co/our-content/donated/gPZwCbdS.jpg'
+              ]);
+              contentEditController.text = '';
+            },
+            child: const Icon(Icons.add),
+          ),
+          const SizedBox(
+            width: 150,
+          ),
+          FloatingActionButton(
+            onPressed: () {
+              statusController.addArte([
+                'Franck Peñaloza',
+                contentArteController.text,
+                'https://uifaces.co/our-content/donated/gPZwCbdS.jpg'
+              ]);
+              contentArteController.text = '';
+            },
+            child: const Icon(Icons.add_a_photo),
+          ),
+        ]),
       ),
-      const SizedBox(width: 150,),
-        FloatingActionButton(
-          onPressed:() {
-            statusController.addArte(
-              ['Franck Peñaloza', contentArteController.text, 'https://uifaces.co/our-content/donated/gPZwCbdS.jpg']
-            );
-            contentArteController.text='';
-          },
-          child: const Icon(Icons.add_a_photo),
-        ),
-      ]
-      ),
-      ),  
       body: ContAdd(
-        title: '',     
-        textFieldKey: const Key('tfc'), 
-        controllerEdit: contentEditController, 
-        controllerArte: contentArteController, 
-        linkFieldKey: const Key('tfc'),      
+        title: '',
+        textFieldKey: const Key('tfc'),
+        controllerEdit: contentEditController,
+        controllerArte: contentArteController,
+        linkFieldKey: const Key('tfc'),
       ),
     );
   }

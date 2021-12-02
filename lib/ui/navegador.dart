@@ -1,3 +1,4 @@
+import 'package:artwork_crack/ui/custom.dart';
 import 'package:artwork_crack/ui/pages/content/a%C3%B1adir_estado/add.dart';
 import 'package:artwork_crack/ui/pages/content/arte_social/artesocial.dart';
 import 'package:artwork_crack/ui/pages/content/estados/estados.dart';
@@ -32,6 +33,17 @@ class _ContentPageState extends State<ContentPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: CustomAppBar(
+        context: context,
+        tile: const Text(
+          'ArtWork Crack',
+          textAlign: TextAlign.left,
+          style: TextStyle(
+            color: Color(0xff3A434D),
+          ),
+        ),
+        picUrl: 'https://uifaces.co/our-content/donated/2Stzj6r-.jpg',
+      ),
       body: _widgetOptions.elementAt(_selectedIndex),
       bottomNavigationBar: BottomNavigationBar(
         items: const [

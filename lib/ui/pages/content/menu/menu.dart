@@ -6,17 +6,6 @@ class menu extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: CustomAppBar(
-        context: context, 
-        tile: const Text('ArtWork Crack', 
-          textAlign: TextAlign.left, 
-          style: TextStyle(
-            color: Color(0xff3A434D),
-          ),
-        ), 
-        picUrl: 'https://uifaces.co/our-content/donated/2Stzj6r-.jpg',
-        ),
-    );
+    return Scaffold();
   }
 }

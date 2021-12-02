@@ -18,25 +18,13 @@ class _ChatScreenState extends State<ChatScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: CustomAppBar(
-        context: context, 
-        tile: const Text('Juan Manuel', 
-          textAlign: TextAlign.left, 
-          style: TextStyle(
-            color: Color(0xff3A434D),
-          ),
-        ), 
-        picUrl: 'https://uifaces.co/our-content/donated/C1_NFFIG.jpg',
-        ),
       body: SafeArea(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
             Column(
-              children: const [
-                Text('Hola cómo estás')
-              ],
+              children: const [Text('Hola cómo estás')],
             ),
             Row(
               crossAxisAlignment: CrossAxisAlignment.center,
@@ -107,4 +95,3 @@ class _ChatScreenState extends State<ChatScreen> {
     );
   }
 }
-
