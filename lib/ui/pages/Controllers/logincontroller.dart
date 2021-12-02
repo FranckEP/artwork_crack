@@ -6,4 +6,8 @@ class LoginController extends GetxController {
 
   String get user => _user.value;
   String get estadoUser => _estadoUser.value;
+
+  asignarUsuario(var user) {
+    _user.value = user;
+  }
 }
