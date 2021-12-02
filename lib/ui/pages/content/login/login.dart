@@ -48,7 +48,7 @@ class _MyLoginState extends State<MyLogin> {
                             decoration: InputDecoration(
                                 fillColor: Colors.grey.shade100,
                                 filled: true,
-                                hintText: "Email",
+                                hintText: "Nombre Usuario",
                                 border: OutlineInputBorder(
                                   borderRadius: BorderRadius.circular(10),
                                 )),
@@ -88,7 +88,7 @@ class _MyLoginState extends State<MyLogin> {
                                               context,
                                               MaterialPageRoute(
                                                 builder: (context) =>
-                                                    const  ContentPage(),
+                                                    const ContentPage(),
                                               ))
                                         },
                                     icon: const Icon(

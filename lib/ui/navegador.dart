@@ -1,10 +1,13 @@
 import 'package:artwork_crack/ui/custom.dart';
+import 'package:artwork_crack/ui/pages/Controllers/logincontroller.dart';
 import 'package:artwork_crack/ui/pages/content/a%C3%B1adir_estado/add.dart';
 import 'package:artwork_crack/ui/pages/content/arte_social/artesocial.dart';
 import 'package:artwork_crack/ui/pages/content/estados/estados.dart';
 import 'package:artwork_crack/ui/pages/content/mensajes/listchat.dart';
 import 'package:artwork_crack/ui/pages/content/menu/menu.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get_core/src/get_main.dart';
+import 'package:get/get_instance/src/extension_instance.dart';
 
 class ContentPage extends StatefulWidget {
   const ContentPage({Key? key}) : super(key: key);
@@ -32,14 +35,15 @@ class _ContentPageState extends State<ContentPage> {
 
   @override
   Widget build(BuildContext context) {
+    LoginController loginController = Get.find();
     return Scaffold(
       appBar: CustomAppBar(
         context: context,
-        tile: const Text(
-          'ArtWork Crack',
+        tile: Text(
+          loginController.user.toString(),
           textAlign: TextAlign.left,
           style: TextStyle(
-            color: Color(0xff3A434D),
+            color: const Color(0xff3A434D),
           ),
         ),
         picUrl: 'https://uifaces.co/our-content/donated/2Stzj6r-.jpg',
