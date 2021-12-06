@@ -3,8 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:artwork_crack/ui/custom.dart';
 import 'package:get/get.dart';
 
-class menu extends StatelessWidget {
-  const menu({Key? key}) : super(key: key);
+class Menu extends StatelessWidget {
+  const Menu({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -26,7 +26,7 @@ class menu extends StatelessWidget {
         const SizedBox(height: 30),
         ElevatedButton(
           onPressed: () {
-            Get.to(()=>const MyLogin());
+            Get.to(()=> MyLogin());
           },
           child: const Text('Cerrar sesión', style: TextStyle(fontSize: 20)
         ),

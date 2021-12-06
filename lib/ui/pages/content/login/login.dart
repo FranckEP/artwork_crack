@@ -2,11 +2,12 @@ import 'package:artwork_crack/ui/navegador.dart';
 import 'package:artwork_crack/ui/pages/Controllers/logincontroller.dart';
 import 'package:flutter/material.dart';
 import 'package:artwork_crack/ui/pages/content/registro/register.dart';
-import 'package:get/get_core/src/get_main.dart';
-import 'package:get/get_instance/src/extension_instance.dart';
+import 'package:get/get.dart';
 
 class MyLogin extends StatefulWidget {
-  const MyLogin({Key? key}) : super(key: key);
+   MyLogin({Key? key}) : super(key: key);
+
+   TextEditingController NombreUsuarioController = TextEditingController();
 
   @override
   _MyLoginState createState() => _MyLoginState();
@@ -16,7 +17,6 @@ class _MyLoginState extends State<MyLogin> {
   @override
   Widget build(BuildContext context) {
     LoginController loginController = Get.find();
-    TextEditingController NombreUsuarioController = TextEditingController();
     return Container(
       decoration: const BoxDecoration(
         image: DecorationImage(
@@ -28,7 +28,6 @@ class _MyLoginState extends State<MyLogin> {
         backgroundColor: Colors.transparent,
         body: Stack(
           children: [
-            Container(),
             Container(
               padding: const EdgeInsets.only(left: 35, top: 100),
               child: const Text(
@@ -48,7 +47,7 @@ class _MyLoginState extends State<MyLogin> {
                       child: Column(
                         children: [
                           TextField(
-                            controller: NombreUsuarioController,
+                            controller: widget.NombreUsuarioController,
                             style: const TextStyle(color: Colors.black),
                             decoration: InputDecoration(
                                 fillColor: Colors.grey.shade100,
@@ -88,13 +87,9 @@ class _MyLoginState extends State<MyLogin> {
                                 backgroundColor: const Color(0xff4c505b),
                                 child: IconButton(
                                     color: Colors.white,
-                                    onPressed: () => {
-                                          Navigator.push(
-                                              context,
-                                              MaterialPageRoute(
-                                                builder: (context) =>
-                                                    const ContentPage(),
-                                              ))
+                                    onPressed: (){
+                                          Get.to(()=>const ContentPage());
+                                          loginController.asignarUsuario(widget.NombreUsuarioController.text);
                                         },
                                     icon: const Icon(
                                       Icons.arrow_forward,
