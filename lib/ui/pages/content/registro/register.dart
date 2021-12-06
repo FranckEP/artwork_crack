@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:artwork_crack/ui/pages/content/login/login.dart';
+import 'package:get/get.dart';
 
 class MyRegister extends StatefulWidget {
   const MyRegister({Key? key}) : super(key: key);
@@ -147,11 +148,7 @@ class _MyRegisterState extends State<MyRegister> {
                             children: [
                               TextButton(
                                 onPressed: () {
-                                  Navigator.push(
-                                      context,
-                                      MaterialPageRoute(
-                                          builder: (context) =>
-                                               MyLogin()));
+                                  Get.to(() => MyLogin());
                                 },
                                 child: const Text(
                                   'Entrar',
