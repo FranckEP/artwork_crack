@@ -1,7 +1,7 @@
+import 'package:artwork_crack/domain/Controllers/logincontroller.dart';
 import 'package:artwork_crack/ui/navegador.dart';
-import 'package:artwork_crack/ui/pages/Controllers/logincontroller.dart';
+import 'package:artwork_crack/ui/pages/Authentication/registro/register.dart';
 import 'package:flutter/material.dart';
-import 'package:artwork_crack/ui/pages/content/registro/register.dart';
 import 'package:get/get.dart';
 
 class MyLogin extends StatefulWidget {

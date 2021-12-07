@@ -1,5 +1,5 @@
+import 'package:artwork_crack/domain/Controllers/logincontroller.dart';
 import 'package:artwork_crack/ui/custom.dart';
-import 'package:artwork_crack/ui/pages/Controllers/logincontroller.dart';
 import 'package:artwork_crack/ui/pages/content/a%C3%B1adir_estado/add.dart';
 import 'package:artwork_crack/ui/pages/content/arte_social/artesocial.dart';
 import 'package:artwork_crack/ui/pages/content/estados/estados.dart';

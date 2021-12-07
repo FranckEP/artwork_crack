@@ -1,5 +1,5 @@
+import 'package:artwork_crack/ui/pages/Authentication/login/login.dart';
 import 'package:flutter/material.dart';
-import 'package:artwork_crack/ui/pages/content/login/login.dart';
 import 'package:get/get.dart';
 
 class MyRegister extends StatefulWidget {

@@ -1,17 +1,19 @@
+import 'package:artwork_crack/domain/Controllers/logincontroller.dart';
+import 'package:artwork_crack/domain/Controllers/states_control.dart';
 import 'package:artwork_crack/ui/myapp.dart';
-import 'package:artwork_crack/ui/pages/Controllers/states_control.dart';
-import 'package:artwork_crack/ui/pages/Controllers/logincontroller.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:loggy/loggy.dart';
 
-void main() {
+void main()async {
   WidgetsFlutterBinding.ensureInitialized();
   Loggy.initLoggy(
     logPrinter: const PrettyPrinter(
       showColors: true,
     ),
   );
+  await Firebase.initializeApp();
   Get.put(LoginController());
   Get.put(ContenidoController());
   runApp(MyApp());

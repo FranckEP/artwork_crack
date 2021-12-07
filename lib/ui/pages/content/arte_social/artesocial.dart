@@ -1,4 +1,4 @@
-import 'package:artwork_crack/ui/pages/Controllers/states_control.dart';
+import 'package:artwork_crack/domain/Controllers/states_control.dart';
 import 'package:artwork_crack/ui/pages/content/arte_social/widgets/socialcard.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
