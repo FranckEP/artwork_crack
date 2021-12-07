@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "171488498912",
+    "project_id": "artwork-crack",
+    "storage_bucket": "artwork-crack.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:171488498912:android:7f1fe8e6a43f9fbc4dec85",
+        "android_client_info": {
+          "package_name": "com.example.artwork_crack"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "171488498912-prm87au00c200gr5iieg7pqbvqaen0e6.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAxfqcCW2MEduumSIaoMEXfs5RAw_13rzQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "171488498912-prm87au00c200gr5iieg7pqbvqaen0e6.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

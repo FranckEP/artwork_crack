@@ -6,6 +6,7 @@ import 'package:get/get.dart';
 import 'package:loggy/loggy.dart';
 
 void main() {
+  WidgetsFlutterBinding.ensureInitialized();
   Loggy.initLoggy(
     logPrinter: const PrettyPrinter(
       showColors: true,
@@ -13,5 +14,5 @@ void main() {
   );
   Get.put(LoginController());
   Get.put(ContenidoController());
-  runApp(const MyApp());
+  runApp(MyApp());
 }
