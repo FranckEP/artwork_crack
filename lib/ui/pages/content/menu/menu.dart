@@ -3,9 +3,16 @@ import 'package:artwork_crack/ui/pages/Authentication/login/login.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-class Menu extends StatelessWidget {
-  AuthenticationController authenticationController = Get.find();
+class Menu extends StatefulWidget {
+  const Menu({Key? key}) : super(key: key);
 
+  @override 
+  _Menu createState() => _Menu();
+}
+
+class _Menu extends State<Menu>{
+  
+AuthenticationController authenticationController = Get.find();
   _logout() async {
     try {
       await authenticationController.logOut();

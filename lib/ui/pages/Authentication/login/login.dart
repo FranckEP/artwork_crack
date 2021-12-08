@@ -89,7 +89,6 @@ class _MyLoginState extends State<MyLogin> {
                     ),
                     OutlinedButton(
                         onPressed: () async {
-                          Get.to(() => ContentPage());
                           FocusScope.of(context).requestFocus(FocusNode());
                           final form = _formKey.currentState;
                           form!.save();
