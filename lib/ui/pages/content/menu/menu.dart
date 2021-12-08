@@ -1,9 +1,18 @@
+import 'package:artwork_crack/domain/Controllers/authentication_controller.dart';
 import 'package:artwork_crack/ui/pages/Authentication/login/login.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 class Menu extends StatelessWidget {
-  const Menu({Key? key}) : super(key: key);
+  AuthenticationController authenticationController = Get.find();
+
+  _logout() async {
+    try {
+      await authenticationController.logOut();
+    } catch (e) {
+      print(e);
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -25,7 +34,7 @@ class Menu extends StatelessWidget {
         const SizedBox(height: 30),
         ElevatedButton(
           onPressed: () {
-            Get.to(()=> MyLogin());
+            _logout();
           },
           child: const Text('Cerrar sesión', style: TextStyle(fontSize: 20)
         ),

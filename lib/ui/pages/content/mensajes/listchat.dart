@@ -1,8 +1,6 @@
 import 'package:artwork_crack/ui/pages/content/mensajes/widgets/listamensajes.dart';
 import 'package:flutter/material.dart';
 
-import '../../../custom.dart';
-
 class ChatListPageView extends StatefulWidget {
   const ChatListPageView({Key? key}) : super(key: key);
 

@@ -45,8 +45,8 @@ class _MyLoginState extends State<MyLogin> {
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
                 Container(
-                      width: 300,
-                      height: 300,
+                      width: 400,
+                      height: 400,
                       decoration: const BoxDecoration(
                       image: DecorationImage(
                         image: AssetImage("assets/images/logo.png"),))
@@ -84,11 +84,12 @@ class _MyLoginState extends State<MyLogin> {
                         return null;
                       },
                     ),
-                    SizedBox(
+                    const SizedBox(
                       height: 5,
                     ),
                     OutlinedButton(
                         onPressed: () async {
+                          Get.to(() => ContentPage());
                           FocusScope.of(context).requestFocus(FocusNode());
                           final form = _formKey.currentState;
                           form!.save();
@@ -97,13 +98,12 @@ class _MyLoginState extends State<MyLogin> {
                                 controllerEmail.text, controllerPassword.text);
                           }
                         },
-                        child: Text("Entrar")),
+                        child: const Text("Entrar")),
                   ]),
                 ),
                 TextButton(
                     onPressed: () {
-                      Navigator.push(context,
-                          MaterialPageRoute(builder: (context) => MyRegister()));
+                      Get.to(() => const MyRegister());
                     },
                     child: const Text("Crear cuenta"))
               ],
