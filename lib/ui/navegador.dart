@@ -86,7 +86,7 @@ class _ContentPageState extends State<ContentPage> {
           ],
           currentIndex: _selectedIndex,
           onTap: _onItemTapped,
-          selectedItemColor: const Color(0xff3A434D),
+          selectedItemColor: const Color(0xffF4AC47),
           unselectedItemColor: const Color(0xff3A434D),
         ),
       );
