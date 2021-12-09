@@ -1,3 +1,4 @@
+import 'package:artwork_crack/ui/firebase_central.dart';
 import 'package:artwork_crack/ui/pages/Authentication/login/login.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
@@ -9,7 +10,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GetMaterialApp(
-      home: MyLogin(),
+      home: FirebaseCentral(),
       debugShowCheckedModeBanner: false,
     );
   }

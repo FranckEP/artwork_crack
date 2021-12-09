@@ -94,7 +94,7 @@ class _MyLoginState extends State<MyLogin> {
                           form!.save();
                           if (_formKey.currentState!.validate()) {
                             await _login(
-                                controllerEmail.text, controllerPassword.text);
+                              controllerEmail.text, controllerPassword.text);
                           }
                         },
                         child: const Text("Entrar")),

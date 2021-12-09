@@ -86,10 +86,8 @@ class _ContentPageState extends State<ContentPage> {
           ],
           currentIndex: _selectedIndex,
           onTap: _onItemTapped,
-          backgroundColor: const Color(0xff3A434D),
-          selectedItemColor: const Color(0xff68CAF0),
-          unselectedItemColor: Colors.white,
-          type: BottomNavigationBarType.fixed,
+          selectedItemColor: const Color(0xff3A434D),
+          unselectedItemColor: const Color(0xff3A434D),
         ),
       );
     }
