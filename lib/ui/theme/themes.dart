@@ -3,6 +3,7 @@ import 'colors.dart';
 import 'text_styles.dart';
 
 class MyTheme {
+
   static ThemeData get ligthTheme {
     return ThemeData(
       primarySwatch: AppColors.CreateMaterialColor(AppColors.primaryColor),
@@ -45,4 +46,5 @@ class MyTheme {
       inputDecorationTheme: ligthTheme.inputDecorationTheme,
     );
   }
+
 }

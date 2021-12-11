@@ -1,4 +1,4 @@
-import 'package:artwork_crack/domain/services/database.dart';
+import 'package:artwork_crack/domain/repositories/database.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 class FirestoreDatabase extends DatabaseInterface {
   // We get the Firestore instance

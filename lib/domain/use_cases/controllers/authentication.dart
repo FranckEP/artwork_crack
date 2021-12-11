@@ -7,11 +7,25 @@ class AuthController extends GetxController {
   // Observables
   final _authenticated = false.obs;
   final _currentUser = Rx<UserModel?>(null);
+  final _nameUser = "".obs;
   late AuthManagement _manager;
+
+  String get nameUser => _nameUser.value;
 
   AuthController(){
     _manager = Get.find();
     getLoggedUser();
+  }
+
+  Future<void> usuario(
+      {required String email, required String password}) async {
+    var userCredential = FirebaseAuth.instance.currentUser!.displayName;
+    print(userCredential);
+    guardarUser(userCredential!);
+  }
+
+  guardarUser(String usuario){
+    _nameUser.value = usuario;
   }
 
   getLoggedUser()async{

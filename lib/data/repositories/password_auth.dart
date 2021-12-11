@@ -2,7 +2,7 @@ import 'dart:developer';
 
 import 'package:artwork_crack/data/repositories/firestore_database.dart';
 import 'package:artwork_crack/domain/models/user.dart';
-import 'package:artwork_crack/domain/services/auth.dart';
+import 'package:artwork_crack/domain/repositories/auth.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_database/firebase_database.dart';
 import 'package:get/get.dart';

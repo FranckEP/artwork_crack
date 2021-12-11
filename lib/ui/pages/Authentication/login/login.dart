@@ -27,7 +27,7 @@ class _MyLoginState extends State<MyLogin> {
       Get.snackbar(
         "Login",
         err.toString(),
-        icon: Icon(Icons.person, color: Colors.red),
+        icon: const Icon(Icons.person, color: Colors.red),
         snackPosition: SnackPosition.BOTTOM,
       );
     }
@@ -67,12 +67,12 @@ class _MyLoginState extends State<MyLogin> {
                         }
                       },
                     ),
-                    SizedBox(
+                    const SizedBox(
                       height: 5,
                     ),
                     TextFormField(
                       controller: controllerPassword,
-                      decoration: InputDecoration(labelText: "Contraseña"),
+                      decoration: const InputDecoration(labelText: "Contraseña"),
                       keyboardType: TextInputType.number,
                       obscureText: true,
                       validator: (value) {
@@ -95,6 +95,7 @@ class _MyLoginState extends State<MyLogin> {
                           if (_formKey.currentState!.validate()) {
                             await _login(
                               controllerEmail.text, controllerPassword.text);
+                            authenticationController.usuario(email: controllerEmail.text, password: controllerEmail.text);
                           }
                         },
                         child: const Text("Entrar")),

@@ -1,7 +1,8 @@
+import 'package:artwork_crack/domain/use_cases/controllers/ui.dart';
+import 'package:artwork_crack/domain/use_cases/management_theme.dart';
 import 'package:artwork_crack/ui/firebase_central.dart';
-import 'package:artwork_crack/ui/pages/Authentication/login/login.dart';
-import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:get/get_navigation/get_navigation.dart';
 
 import 'theme/themes.dart';
@@ -11,6 +12,7 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    _stateManagementInit();
     return GetMaterialApp(
       home: FirebaseCentral(),
       debugShowCheckedModeBanner: false,
@@ -23,5 +25,14 @@ class MyApp extends StatelessWidget {
         themeMode:
             ThemeMode.system,
     );
+  }
+
+  void _stateManagementInit() {
+    UIController uiController = Get.put(UIController());
+    uiController.themeManager = ThemeManager();
+
+    ever(uiController.reactiveBrightness, (bool isDarkMode) {
+      uiController.manager.changeTheme(isDarkMode: isDarkMode);
+    });
   }
 }
