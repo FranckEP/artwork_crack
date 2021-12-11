@@ -1,4 +1,4 @@
-import 'package:artwork_crack/domain/Controllers/authentication_controller.dart';
+import 'package:artwork_crack/domain/use_cases/controllers/authentication.dart';
 import 'package:artwork_crack/ui/navegador.dart';
 import 'package:artwork_crack/ui/pages/Authentication/registro/register.dart';
 import 'package:flutter/material.dart';
@@ -17,7 +17,7 @@ class _MyLoginState extends State<MyLogin> {
   final _formKey = GlobalKey<FormState>();
   final controllerEmail = TextEditingController();
   final controllerPassword = TextEditingController();
-  AuthenticationController authenticationController = Get.find();
+  AuthController authenticationController = Get.find();
 
   _login(theEmail, thePassword) async {
     print('_login $theEmail $thePassword');
@@ -39,7 +39,7 @@ class _MyLoginState extends State<MyLogin> {
       body: ListView(
         children: [
           Container(
-            padding: EdgeInsets.all(20),
+            padding: const EdgeInsets.all(20),
             child: Column(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               crossAxisAlignment: CrossAxisAlignment.center,
@@ -57,8 +57,8 @@ class _MyLoginState extends State<MyLogin> {
                     Column(mainAxisAlignment: MainAxisAlignment.center, children: [
                     TextFormField(
                       keyboardType: TextInputType.emailAddress,
-                      controller: this.controllerEmail,
-                      decoration: InputDecoration(labelText: "Email"),
+                      controller: controllerEmail,
+                      decoration: const InputDecoration(labelText: "Email"),
                       validator: (value) {
                         if (value!.isEmpty) {
                           return "Ingrese el email";
@@ -71,7 +71,7 @@ class _MyLoginState extends State<MyLogin> {
                       height: 5,
                     ),
                     TextFormField(
-                      controller: this.controllerPassword,
+                      controller: controllerPassword,
                       decoration: InputDecoration(labelText: "Contraseña"),
                       keyboardType: TextInputType.number,
                       obscureText: true,

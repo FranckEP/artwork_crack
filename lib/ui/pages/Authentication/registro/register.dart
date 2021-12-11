@@ -1,4 +1,4 @@
-import 'package:artwork_crack/domain/Controllers/authentication_controller.dart';
+import 'package:artwork_crack/domain/use_cases/controllers/authentication.dart';
 import 'package:artwork_crack/ui/pages/Authentication/login/login.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -14,11 +14,12 @@ class _MyRegisterState extends State<MyRegister> {
   final _formKey = GlobalKey<FormState>();
   final controllerEmail = TextEditingController();
   final controllerPassword = TextEditingController();
-  AuthenticationController authenticationController = Get.find();
+  final controllerName = TextEditingController();
+  AuthController authenticationController = Get.find();
 
-  _signup(theEmail, thePassword) async {
+  _signup(email, password, name) async {
     try {
-      await authenticationController.signUp(theEmail, thePassword);
+      await authenticationController.signUp(email: email, password: password, name: name);
 
       Get.snackbar(
         "Sign Up",
@@ -48,11 +49,11 @@ class _MyRegisterState extends State<MyRegister> {
               padding: const EdgeInsets.all(20),
               child: Form(
                 key: _formKey,
-                child: Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
+                child: ListView(
+                    //mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       const SizedBox(
-                        height: 270,
+                        height: 300,
                       ),
                       const Text(
                         "Crear nueva cuenta",
@@ -62,8 +63,24 @@ class _MyRegisterState extends State<MyRegister> {
                         height: 20,
                       ),
                       TextFormField(
+                        controller: controllerName,
                         keyboardType: TextInputType.emailAddress,
-                        controller: this.controllerEmail,
+                        decoration:
+                            const InputDecoration(labelText: "Nombre de usuario"),
+                        validator: (value) {
+                          if (value!.isEmpty) {
+                            return "Enter user";
+                          } else if (value.length < 6) {
+                            return "Enter valid user";
+                          }
+                        },
+                      ),
+                      const SizedBox(
+                        height: 20,
+                      ),
+                      TextFormField(
+                        keyboardType: TextInputType.emailAddress,
+                        controller: controllerEmail,
                         decoration:
                             const InputDecoration(labelText: "Email address"),
                         validator: (value) {
@@ -78,7 +95,7 @@ class _MyRegisterState extends State<MyRegister> {
                         height: 20,
                       ),
                       TextFormField(
-                        controller: this.controllerPassword,
+                        controller: controllerPassword,
                         decoration: const InputDecoration(labelText: "Password"),
                         keyboardType: TextInputType.number,
                         obscureText: true,
@@ -101,8 +118,9 @@ class _MyRegisterState extends State<MyRegister> {
                             // this line dismiss the keyboard by taking away the focus of the TextFormField and giving it to an unused
                             FocusScope.of(context).requestFocus(FocusNode());
                             if (_formKey.currentState!.validate()) {
+                              Get.to(MyLogin());
                               _signup(controllerEmail.text,
-                                  controllerPassword.text);
+                                  controllerPassword.text, controllerName.text);
                             }
                           },
                           child: const Text("Registrarse", style: TextStyle(fontSize: 25, color: Colors.white,),)),

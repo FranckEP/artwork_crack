@@ -22,12 +22,11 @@ class ContAdd extends StatelessWidget {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             crossAxisAlignment: CrossAxisAlignment.stretch,
-            children: [
+              children: [
               TextField(
                 key: textFieldKey, controller: controllerEdit,
-                style: const TextStyle(color: Colors.black),
                 decoration: InputDecoration(
-                    fillColor: Colors.grey.shade100,
+                    fillColor: Colors.transparent,
                     filled: true,
                     hintText: "¡Escribe tú nuevo estado aquí!",
                     border: OutlineInputBorder(
@@ -44,9 +43,8 @@ class ContAdd extends StatelessWidget {
             children: [
               TextField(
                 key: linkFieldKey, controller: controllerArte,
-                style: const TextStyle(color: Colors.black),
                 decoration: InputDecoration(
-                    fillColor: Colors.grey.shade100,
+                    fillColor: Colors.transparent,
                     filled: true,
                     hintText: "¡Ingresa el link de tu nuevo arte aquí!",
                     border: OutlineInputBorder(

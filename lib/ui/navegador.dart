@@ -1,8 +1,10 @@
-import 'package:artwork_crack/domain/Controllers/logincontroller.dart';
+import 'package:artwork_crack/domain/use_cases/controllers/logincontroller.dart';
+import 'package:artwork_crack/domain/use_cases/controllers/ui.dart';
 import 'package:artwork_crack/ui/custom.dart';
 import 'package:artwork_crack/ui/pages/content/a%C3%B1adir_estado/add.dart';
 import 'package:artwork_crack/ui/pages/content/arte_social/artesocial.dart';
 import 'package:artwork_crack/ui/pages/content/estados/estados.dart';
+import 'package:artwork_crack/ui/pages/content/mensajes/chat_page.dart';
 import 'package:artwork_crack/ui/pages/content/mensajes/listchat.dart';
 import 'package:artwork_crack/ui/pages/content/menu/menu.dart';
 import 'package:flutter/material.dart';
@@ -37,12 +39,13 @@ class _ContentPageState extends State<ContentPage> {
   @override
   Widget build(BuildContext context) {
     LoginController loginController = Get.find();
+    UIController uiController = Get.find();
     return GetX<LoginController>(
       builder:(controller){
       return Scaffold(
         appBar: CustomAppBar(
           context: context,
-          tile: Text(controller.user, style: const TextStyle(color: Color(0xff3A434D)),),
+          tile: Text(controller.user),
           picUrl: 'https://media.admagazine.com/photos/618a6acbcc7069ed5077ca7f/master/w_1600%2Cc_limit/68704.jpg',
         ),
         body: _widgetOptions.elementAt(_selectedIndex),

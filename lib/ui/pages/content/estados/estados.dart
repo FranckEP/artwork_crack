@@ -1,4 +1,4 @@
-import 'package:artwork_crack/domain/Controllers/states_control.dart';
+import 'package:artwork_crack/domain/use_cases/controllers/states_control.dart';
 import 'package:artwork_crack/ui/pages/content/estados/widgets/estadoscard.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';

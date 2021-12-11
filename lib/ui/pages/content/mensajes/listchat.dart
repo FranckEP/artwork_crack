@@ -1,4 +1,5 @@
-import 'package:artwork_crack/ui/pages/content/mensajes/widgets/listamensajes.dart';
+import 'package:artwork_crack/ui/custom.dart';
+import 'package:artwork_crack/ui/pages/content/mensajes/Models/listamensajes.dart';
 import 'package:flutter/material.dart';
 
 class ChatListPageView extends StatefulWidget {
@@ -24,91 +25,48 @@ class _ChatListPageViewState extends State<ChatListPageView> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: Colors.white,
-      body: Container(
-        decoration: const BoxDecoration(
-          color: Colors.white,
-          borderRadius: BorderRadius.only(
-            topLeft: Radius.circular(15.0),
-            topRight: Radius.circular(15.0),
-          ),
-        ),
-        child: ListView(
+      return Scaffold(
+        //backgroundColor: Colors.white,
+        body: ListView(
           children: const <Widget>[
             ChatListViewItem(
               hasUnreadMessage: true,
-              image: NetworkImage(
-                  'https://media.admagazine.com/photos/618a6acbcc7069ed5077ca7f/master/w_1600%2Cc_limit/68704.jpg'),
+              image: NetworkImage('https://uifaces.co/our-content/donated/2Stzj6r-.jpg'),
               lastMessage:
-                  "Lorem ipsum dolor sit amet. Sed pharetra ante a blandit ultrices.",
+                  "Buenas noches, cómo se encuentra",
               name: "Bree Jarvis",
-              newMesssageCount: 8,
-              time: "19:27 PM",
+              newMesssageCount: 2,
+              time: "13:35 PM",
             ),
             ChatListViewItem(
               hasUnreadMessage: true,
-              image: NetworkImage(
-                  'https://media.admagazine.com/photos/618a6acbcc7069ed5077ca7f/master/w_1600%2Cc_limit/68704.jpg'),
+              image: NetworkImage('https://uifaces.co/our-content/donated/AmtdPFai.jpg'),
               lastMessage:
-                  "Lorem ipsum dolor sit amet. Sed pharetra ante a blandit ultrices.",
+                  "Holaaaaaaa",
               name: "Alex",
-              newMesssageCount: 5,
+              newMesssageCount: 1,
               time: "19:27 PM",
             ),
             ChatListViewItem(
               hasUnreadMessage: false,
-              image: NetworkImage(
-                  'https://media.admagazine.com/photos/618a6acbcc7069ed5077ca7f/master/w_1600%2Cc_limit/68704.jpg'),
+              image: NetworkImage('https://uifaces.co/our-content/donated/2bvuFyb8.jpg'),
               lastMessage:
-                  "Lorem ipsum dolor sit amet. Sed pharetra ante a blandit ultrices.",
+                  "Qué tal le va",
               name: "Carson Sinclair",
               newMesssageCount: 0,
-              time: "19:27 PM",
+              time: "2:30 PM",
             ),
             ChatListViewItem(
               hasUnreadMessage: false,
-              image: NetworkImage(
-                  'https://media.admagazine.com/photos/618a6acbcc7069ed5077ca7f/master/w_1600%2Cc_limit/68704.jpg'),
+              image: NetworkImage('https://uifaces.co/our-content/donated/6h0HeYG_.jpg'),
               lastMessage:
-                  "Lorem ipsum dolor sit amet. Sed pharetra ante a blandit ultrices.",
-              name: "Lucian Guerra",
-              newMesssageCount: 0,
-              time: "19:27 PM",
-            ),
-            ChatListViewItem(
-              hasUnreadMessage: false,
-              image: NetworkImage(
-                  'https://media.admagazine.com/photos/618a6acbcc7069ed5077ca7f/master/w_1600%2Cc_limit/68704.jpg'),
-              lastMessage:
-                  "Lorem ipsum dolor sit amet. Sed pharetra ante a blandit ultrices.",
+                  "Uy hoy fiesta en mi casa, trae las cervezas",
               name: "Sophia-Rose Bush",
               newMesssageCount: 0,
-              time: "19:27 PM",
-            ),
-            ChatListViewItem(
-              hasUnreadMessage: false,
-              image: NetworkImage(
-                  'https://media.admagazine.com/photos/618a6acbcc7069ed5077ca7f/master/w_1600%2Cc_limit/68704.jpg'),
-              lastMessage:
-                  "Lorem ipsum dolor sit amet. Sed pharetra ante a blandit ultrices.",
-              name: "Mohammad",
-              newMesssageCount: 0,
-              time: "19:27 PM",
-            ),
-            ChatListViewItem(
-              hasUnreadMessage: false,
-              image: NetworkImage(
-                  'https://media.admagazine.com/photos/618a6acbcc7069ed5077ca7f/master/w_1600%2Cc_limit/68704.jpg'),
-              lastMessage:
-                  "Lorem ipsum dolor sit amet. Sed pharetra ante a blandit ultrices.",
-              name: "Jimi Cooke",
-              newMesssageCount: 0,
-              time: "19:27 PM",
+              time: "12:08 PM",
             ),
           ],
         ),
-      ),
-    );
+      );
+    }
   }
-}

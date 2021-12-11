@@ -1,7 +1,7 @@
 import 'package:get/get.dart';
 
 class LoginController extends GetxController {
-  var _user = "".obs;
+  var _user = "ArtWork Crack".obs;
   var _estadoUser = "".obs;
 
   String get user => _user.value;
