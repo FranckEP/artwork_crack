@@ -7,7 +7,7 @@ class CustomAppBar extends AppBar {
   final String picUrl;
   static Color pog = Colors.blue.withOpacity(0.5);
 
-  CustomAppBar({
+  CustomAppBar( {
     Key? key,
     required this.context,
     required this.tile,
@@ -25,5 +25,6 @@ class CustomAppBar extends AppBar {
           title: tile,
           backgroundColor: pog,
           shadowColor: Colors.transparent,
+          
         );
 }

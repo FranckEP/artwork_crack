@@ -4,7 +4,6 @@ import 'package:artwork_crack/data/repositories/firestore_database.dart';
 import 'package:artwork_crack/domain/models/user.dart';
 import 'package:artwork_crack/domain/repositories/auth.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:firebase_database/firebase_database.dart';
 import 'package:get/get.dart';
 
 class PasswordAuth implements AuthInterface {
@@ -25,9 +24,9 @@ class PasswordAuth implements AuthInterface {
       var userCredential = 
       await FirebaseAuth.instance
           .signInWithEmailAndPassword(email: email, password: password);
-          FirestoreDatabase firestoreDatabase = Get.find();
+          /*FirestoreDatabase firestoreDatabase = Get.find();
            var doc = await firestoreDatabase.getDocWithId(colletionName: 'users', idDoc: userCredential.user!.uid);
-          return UserModel.fromJson(doc!);
+          return UserModel.fromJson(doc!);*/
     } on FirebaseAuthException catch (e) {
       if (e.code == 'user-not-found') {
         Get.snackbar(

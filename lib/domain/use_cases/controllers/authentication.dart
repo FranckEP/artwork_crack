@@ -9,6 +9,7 @@ class AuthController extends GetxController {
   final _currentUser = Rx<UserModel?>(null);
   final _nameUser = "".obs;
   late AuthManagement _manager;
+  var isLogged = false.obs;
 
   String get nameUser => _nameUser.value;
 
@@ -51,13 +52,41 @@ class AuthController extends GetxController {
 
   AuthManagement get manager => _manager;
 
-  Future<bool> login(email, password) async {
+  // Future<bool> login(email, password) async {
+  //   try {
+  //     _currentUser.value = await _manager.signIn(email: email, password: password);
+  //     return true;
+  //   } catch (e) {
+  //     return false;
+  //   }
+  // }
+
+  // Future<void> login(theEmail, thePassword) async {
+  //   try {
+  //     await FirebaseAuth.instance
+  //         .signInWithEmailAndPassword(email: theEmail, password: thePassword);
+  //     print('OK');
+  //     return Future.value(true);
+  //   } on FirebaseAuthException catch (e) {
+  //     if (e.code == 'user-not-found') {
+  //       print('NOK 1');
+  //       return Future.error("User not found");
+  //     } else if (e.code == 'wrong-password') {
+  //       print('NOK 2');
+  //       return Future.error("Wrong password");
+  //     }
+  //   }
+  //   print('NOK');
+  // }
+
+  Future<void> login(email, password) async {
     try {
-      _currentUser.value = await _manager.signIn(email: email, password: password);
-      return true;
+        await _manager.signIn(email: email, password: password);
+        isLogged.value = true;
     } catch (e) {
-      return false;
+      isLogged.value = false;
     }
+    printInfo(info: 'Ok');
   }
 
   Future<void> signUp({name, email, password}) async {
@@ -71,6 +100,7 @@ class AuthController extends GetxController {
   Future<void> logOut() async {
     try {
       await manager.signOut();
+      isLogged.value = false;
     } catch (e) {
       return Future.error(e);
     }

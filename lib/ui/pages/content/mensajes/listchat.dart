@@ -26,7 +26,6 @@ class _ChatListPageViewState extends State<ChatListPageView> {
   @override
   Widget build(BuildContext context) {
       return Scaffold(
-        //backgroundColor: Colors.white,
         body: ListView(
           children: const <Widget>[
             ChatListViewItem(
@@ -67,6 +66,10 @@ class _ChatListPageViewState extends State<ChatListPageView> {
             ),
           ],
         ),
+        floatingActionButton: FloatingActionButton(onPressed: () {
+          
+        },
+        child: const Icon(Icons.add_comment_outlined,),),
       );
     }
   }

@@ -23,7 +23,7 @@ class add extends StatelessWidget {
         width: MediaQuery.of(context).size.width,
         child: Row(children: <Widget>[
           const SizedBox(
-            width: 80,
+            width: 90,
           ),
           FloatingActionButton(
             onPressed: () {

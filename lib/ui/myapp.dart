@@ -12,7 +12,7 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    _stateManagementInit();
+    //_stateManagementInit();
     return GetMaterialApp(
       home: FirebaseCentral(),
       debugShowCheckedModeBanner: false,
@@ -27,12 +27,12 @@ class MyApp extends StatelessWidget {
     );
   }
 
-  void _stateManagementInit() {
+  /*void _stateManagementInit() {
     UIController uiController = Get.put(UIController());
     uiController.themeManager = ThemeManager();
 
     ever(uiController.reactiveBrightness, (bool isDarkMode) {
       uiController.manager.changeTheme(isDarkMode: isDarkMode);
     });
-  }
+  }*/
 }

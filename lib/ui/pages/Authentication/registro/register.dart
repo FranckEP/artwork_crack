@@ -20,13 +20,13 @@ class _MyRegisterState extends State<MyRegister> {
   _signup(email, password, name) async {
     try {
       await authenticationController.signUp(email: email, password: password, name: name);
-
-      Get.snackbar(
+      return true;
+      /*Get.snackbar(
         "Sign Up",
         'OK',
         icon: const Icon(Icons.person, color: Colors.red),
         snackPosition: SnackPosition.BOTTOM,
-      );
+      );*/
     } catch (err) {
       Get.snackbar(
         "Sign Up",
@@ -34,6 +34,7 @@ class _MyRegisterState extends State<MyRegister> {
         icon: const Icon(Icons.person, color: Colors.red),
         snackPosition: SnackPosition.BOTTOM,
       );
+      return false;
     }
   }
   @override
@@ -112,16 +113,18 @@ class _MyRegisterState extends State<MyRegister> {
                         height: 20,
                       ),
                       TextButton(
-                          onPressed: () {
+                          onPressed: ()async{
                             final form = _formKey.currentState;
                             form!.save();
                             // this line dismiss the keyboard by taking away the focus of the TextFormField and giving it to an unused
                             FocusScope.of(context).requestFocus(FocusNode());
                             if (_formKey.currentState!.validate()) {
-                              Get.to(MyLogin());
-                              _signup(controllerEmail.text,
+                              var result = await _signup(controllerEmail.text,
                                   controllerPassword.text, controllerName.text);
+                              authenticationController.isLogged.value = result;
+                              Get.back();
                             }
+                            
                           },
                           child: const Text("Registrarse", style: TextStyle(fontSize: 25, color: Colors.white,),)),
                     ]),
