@@ -1,5 +1,6 @@
-import 'package:artwork_crack/domain/use_cases/controllers/ui.dart';
+import 'package:artwork_crack/ui/pages/content/ubicacion/screen_ubicacion.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 class CustomAppBar extends AppBar {
   final Widget tile;
@@ -25,6 +26,10 @@ class CustomAppBar extends AppBar {
           title: tile,
           backgroundColor: pog,
           shadowColor: Colors.transparent,
-          
+          actions: <Widget>[
+            IconButton(onPressed:() {
+              Get.to(() => LocationScreen());}, 
+            icon: const Icon(Icons.location_pin))
+          ]
         );
 }

@@ -24,8 +24,6 @@ class MyTheme {
     );
   }
 
-  // on DarkMode the Swatch parameter is not working
-  // https://github.com/flutter/flutter/issues/19089
   static ThemeData get darkTheme {
     return ThemeData(
       primarySwatch: AppColors.CreateMaterialColor(AppColors.primaryColor),

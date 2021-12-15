@@ -27,12 +27,13 @@ class MyApp extends StatelessWidget {
     );
   }
 
-  /*void _stateManagementInit() {
+  void _stateManagementInit() {
     UIController uiController = Get.put(UIController());
     uiController.themeManager = ThemeManager();
 
     ever(uiController.reactiveBrightness, (bool isDarkMode) {
       uiController.manager.changeTheme(isDarkMode: isDarkMode);
     });
-  }*/
+
+  }
 }

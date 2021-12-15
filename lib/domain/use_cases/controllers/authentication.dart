@@ -1,5 +1,5 @@
 import 'package:artwork_crack/domain/models/user.dart';
-import 'package:artwork_crack/domain/use_cases/managament_auth.dart';
+import 'package:artwork_crack/domain/use_cases/management_auth.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:get/get.dart';
 

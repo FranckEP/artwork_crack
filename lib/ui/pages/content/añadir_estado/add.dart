@@ -1,7 +1,7 @@
 
 import 'package:artwork_crack/domain/use_cases/controllers/authentication.dart';
 import 'package:artwork_crack/domain/use_cases/controllers/states_control.dart';
-import 'package:artwork_crack/domain/use_cases/managament_auth.dart';
+import 'package:artwork_crack/domain/use_cases/management_auth.dart';
 import 'package:artwork_crack/ui/pages/content/a%C3%B1adir_estado/widgets/cont_add.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_database/firebase_database.dart';
