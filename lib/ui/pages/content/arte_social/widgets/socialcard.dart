@@ -3,19 +3,21 @@ import 'package:flutter/material.dart';
 import 'package:like_button/like_button.dart';
 
 class socialCard extends StatelessWidget {
-  final String title, imagenicon, imagen; 
+  final String title, imagenicon, imagen, contenido; 
 
   const socialCard({
     Key? key,
     required this.title, 
     required this.imagenicon,
-    required this.imagen,   
+    required this.imagen,
+    required this.contenido,   
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return AppCard(
+    return AppCardSocial(
       title: title,
+      contentstring: Text(contenido),
       content: Image.network(imagen),
       topLeftWidget: SizedBox(
         height: 48.0,

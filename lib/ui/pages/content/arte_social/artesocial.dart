@@ -1,7 +1,7 @@
-import 'package:artwork_crack/domain/use_cases/controllers/states_control.dart';
+import 'package:artwork_crack/data/services/artwork_api.dart';
+import 'package:artwork_crack/domain/models/artwork_state_model.dart';
 import 'package:artwork_crack/ui/pages/content/arte_social/widgets/socialcard.dart';
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 
 class arteSocial extends StatefulWidget {
   const arteSocial({Key? key}) : super(key: key);
@@ -14,19 +14,32 @@ class _arteSocialState extends State<arteSocial> {
 
   @override
   Widget build(BuildContext context) {
-    return GetX<ContenidoController>(
-      builder:(controller){
-        return ListView.builder(
-        itemCount: controller.listArte.length,
-        itemBuilder: (context, index){
-          return socialCard(
-            title: controller.listArte[index][0], 
-            imagen: controller.listArte[index][1], 
-            imagenicon: controller.listArte[index][2],
+    ArtWorkPoolService service = ArtWorkPoolService();
+    Future<List<ArtWorkModel>> futureArtworks = service.fecthData();
+    return FutureBuilder<List<ArtWorkModel>>(
+      future: futureArtworks,
+      builder: (context, snapshot) {
+        if (snapshot.hasData) {
+          final items = snapshot.data!;
+          return ListView.builder(
+            itemCount: items.length,
+            itemBuilder: (context, index) {
+              ArtWorkModel artwork = items[index];
+              return socialCard(
+                title: "${artwork.title}",
+                contenido: "Titulo largo: ${artwork.longTitle}.\n Artista: ${artwork.artist}.\n Lugar de produccion: ${artwork.productionPlaces.isNotEmpty?artwork.productionPlaces.first:"unknown"}.",
+                imagenicon:  '',
+                imagen: artwork.imageUrl,
+              );
+            },
           );
+        } else if (snapshot.hasError) {
+          return Text("${snapshot.error}");
         }
-      );
-      }
+
+        // By default, show a loading spinner.
+        return const Center(child: CircularProgressIndicator());
+      },
     );
   }
 }

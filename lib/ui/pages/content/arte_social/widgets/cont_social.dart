@@ -1,16 +1,16 @@
 import 'package:flutter/material.dart';
 
-class AppCard extends StatelessWidget { 
-  final Widget? topLeftWidget, topRightWidget, content, extraContent; 
+class AppCardSocial extends StatelessWidget { 
+  final Widget? topLeftWidget, topRightWidget, content, contentstring; 
   final String title;
 
-  const AppCard(
+  const AppCardSocial(
     {Key? key, 
     required this.title, 
     this.content, 
     this.topLeftWidget, 
-    this.topRightWidget, 
-    this.extraContent})
+    this.topRightWidget,
+    this.contentstring})
     : super( 
       key: key,  
   );
@@ -64,10 +64,10 @@ class AppCard extends StatelessWidget {
                   padding: const EdgeInsets.symmetric(horizontal: 4.0),
                   child: content,
                 ),
-              if (extraContent != null)
+              if (contentstring != null)
                 Padding(
                   padding: const EdgeInsets.only(top: 18.0),
-                  child: extraContent,
+                  child: contentstring,
                 ),
             ],
           ),

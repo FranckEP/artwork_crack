@@ -1,4 +1,4 @@
-import 'package:artwork_crack/data/services/location.dart';
+import 'package:artwork_crack/data/services/locationservice.dart';
 import 'package:artwork_crack/domain/models/location.dart';
 import 'package:artwork_crack/domain/use_cases/controllers/authentication.dart';
 import 'package:artwork_crack/domain/use_cases/controllers/connectivity_control.dart';

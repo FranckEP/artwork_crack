@@ -1,7 +1,7 @@
 import 'dart:developer';
 
 import 'package:artwork_crack/data/repositories/firestore_database.dart';
-import 'package:artwork_crack/data/services/location.dart';
+import 'package:artwork_crack/data/services/locationservice.dart';
 import 'package:artwork_crack/domain/models/location.dart';
 import 'package:artwork_crack/domain/use_cases/controllers/connectivity_control.dart';
 import 'package:artwork_crack/domain/use_cases/controllers/location_control.dart';
