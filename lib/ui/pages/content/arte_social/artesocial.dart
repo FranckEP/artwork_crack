@@ -26,9 +26,9 @@ class _arteSocialState extends State<arteSocial> {
             itemBuilder: (context, index) {
               ArtWorkModel artwork = items[index];
               return socialCard(
-                title: "${artwork.title}",
-                contenido: "Titulo largo: ${artwork.longTitle}.\n Artista: ${artwork.artist}.\n Lugar de produccion: ${artwork.productionPlaces.isNotEmpty?artwork.productionPlaces.first:"unknown"}.",
-                imagenicon:  '',
+                title: artwork.title,
+                contenido: "Titulo largo: ${artwork.longTitle}.\nArtista: ${artwork.artist}.\nLugar de produccion: ${artwork.productionPlaces.isNotEmpty?artwork.productionPlaces.first:"unknown"}.",
+                imagenicon:  'https://uifaces.co/our-content/donated/wteXSjwk.jpg',
                 imagen: artwork.imageUrl,
               );
             },
