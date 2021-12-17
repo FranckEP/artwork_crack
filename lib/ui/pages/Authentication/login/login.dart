@@ -24,12 +24,17 @@ class _MyLoginState extends State<MyLogin> {
     try {
       await authenticationController.login(theEmail, thePassword);
     } catch (err) {
-      Get.snackbar(
-        "Login",
-        err.toString(),
-        icon: const Icon(Icons.person, color: Colors.red),
-        snackPosition: SnackPosition.BOTTOM,
-      );
+      if (err == 'user-not-found') {
+        Get.snackbar(
+          "Usuario no encontrado",
+          "No se encontró un usuario que use ese email.",
+        );
+      } else if (err == 'wrong-password') {
+        Get.snackbar(
+          "Contraseña equivocada",
+          "La contraseña proveida por el usuario no es correcta.",
+        );
+      }
     }
   }
   

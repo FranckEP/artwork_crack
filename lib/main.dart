@@ -8,12 +8,13 @@ import 'package:artwork_crack/domain/use_cases/controllers/location_control.dart
 import 'package:artwork_crack/domain/use_cases/controllers/logincontroller.dart';
 import 'package:artwork_crack/domain/use_cases/controllers/notification_control.dart';
 import 'package:artwork_crack/domain/use_cases/controllers/permiso_control.dart';
-import 'package:artwork_crack/domain/use_cases/controllers/states_control.dart';
 import 'package:artwork_crack/domain/use_cases/controllers/authentication.dart';
+import 'package:artwork_crack/domain/use_cases/controllers/status_control.dart';
 import 'package:artwork_crack/domain/use_cases/controllers/ui.dart';
 import 'package:artwork_crack/domain/use_cases/management_auth.dart';
 import 'package:artwork_crack/domain/use_cases/management_location.dart';
 import 'package:artwork_crack/domain/use_cases/management_permiso.dart';
+import 'package:artwork_crack/domain/use_cases/management_states.dart';
 import 'package:artwork_crack/ui/myapp.dart';
 import 'package:connectivity_plus/connectivity_plus.dart';
 import 'package:firebase_core/firebase_core.dart';
@@ -31,7 +32,8 @@ void main()async {
   );
   await Firebase.initializeApp();
   Get.put(LoginController());
-  Get.put(ContenidoController());
+  Get.put(StatusManager());
+  Get.put(StateController());
   Get.put(AuthManagement());
   Get.put(FirestoreDatabase());
   Get.put(AuthController());

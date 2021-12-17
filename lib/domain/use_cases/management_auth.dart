@@ -13,7 +13,7 @@ class AuthManagement {
     try {
       return await auth.signIn(email: email, password: password);
     } catch (e) {
-      rethrow;
+      return Future.error(e);
     }
   }
 
@@ -26,7 +26,7 @@ class AuthManagement {
       auth.signUp(userModel: user);
       return true;
     } catch (e) {
-      rethrow;
+      return Future.error(e);
     }
   }
 

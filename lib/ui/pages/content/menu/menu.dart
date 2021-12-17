@@ -27,7 +27,13 @@ class _Menu extends State<Menu> {
   @override
   Widget build(BuildContext context) {
     return Center(
-        child: Column(mainAxisSize: MainAxisSize.max, children: <Widget>[
+      child: Column(mainAxisSize: MainAxisSize.max, children: <Widget>[
+      Container(
+        width: 400,
+        height: 400,
+        decoration: const BoxDecoration(
+          image: DecorationImage(
+            image: AssetImage("assets/images/logo.png"),))),
       const SizedBox(height: 10),
       ElevatedButton(
         onPressed: () {

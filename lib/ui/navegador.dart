@@ -1,3 +1,4 @@
+import 'package:artwork_crack/domain/use_cases/controllers/authentication.dart';
 import 'package:artwork_crack/domain/use_cases/controllers/logincontroller.dart';
 import 'package:artwork_crack/domain/use_cases/controllers/ui.dart';
 import 'package:artwork_crack/ui/custom.dart';
@@ -11,6 +12,8 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
 import 'package:get/get_instance/src/extension_instance.dart';
+
+import 'pages/content/añadir_estado/widgets/cont_add.dart';
 
 class ContentPage extends StatefulWidget {
   const ContentPage({Key? key}) : super(key: key);
@@ -28,6 +31,9 @@ class _ContentPageState extends State<ContentPage> {
     });
   }
 
+  Color poggers = CustomAppBar.pog;
+  static Color two = Colors.orange.withOpacity(0.5);
+
   static const List<Widget> _widgetOptions = <Widget>[
     Estados(),
     ChatListPageView(),
@@ -35,6 +41,15 @@ class _ContentPageState extends State<ContentPage> {
     arteSocial(),
     Menu(),
   ];
+
+  AuthController authenticationController = Get.find();
+  _logout() async {
+    try {
+      await authenticationController.logOut();
+    } catch (e) {
+      print(e);
+    }
+  }
 
   @override
   Widget build(BuildContext context) {

@@ -28,7 +28,7 @@ class LocationService implements MisionTicService {
       }
       return locations;
     } else {
-      throw Exception('Error on request');
+      return [];
     }
   }
 }

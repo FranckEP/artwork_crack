@@ -30,7 +30,12 @@ class AuthController extends GetxController {
   }
 
   getLoggedUser()async{
-    _currentUser.value = await _manager.getLoggedUser();
+    try {
+      _currentUser.value = await _manager.getLoggedUser();
+      isLogged.value = true;
+    } catch (e) {
+      isLogged.value = false;
+    }
   }
 
   set currentUser(UserModel? userAuth) {
@@ -52,39 +57,14 @@ class AuthController extends GetxController {
 
   AuthManagement get manager => _manager;
 
-  // Future<bool> login(email, password) async {
-  //   try {
-  //     _currentUser.value = await _manager.signIn(email: email, password: password);
-  //     return true;
-  //   } catch (e) {
-  //     return false;
-  //   }
-  // }
-
-  // Future<void> login(theEmail, thePassword) async {
-  //   try {
-  //     await FirebaseAuth.instance
-  //         .signInWithEmailAndPassword(email: theEmail, password: thePassword);
-  //     print('OK');
-  //     return Future.value(true);
-  //   } on FirebaseAuthException catch (e) {
-  //     if (e.code == 'user-not-found') {
-  //       print('NOK 1');
-  //       return Future.error("User not found");
-  //     } else if (e.code == 'wrong-password') {
-  //       print('NOK 2');
-  //       return Future.error("Wrong password");
-  //     }
-  //   }
-  //   print('NOK');
-  // }
-
   Future<void> login(email, password) async {
     try {
         await _manager.signIn(email: email, password: password);
+        print('OK');
         isLogged.value = true;
     } catch (e) {
       isLogged.value = false;
+      return Future.error(e);
     }
     printInfo(info: 'Ok');
   }
@@ -94,6 +74,7 @@ class AuthController extends GetxController {
      await _manager.signUp(name: name, email: email, password: password);
     } catch (e) {
       Get.snackbar('Error en el registro', 'No ha sido posible conectar tus datos');
+      return Future.error(e);
     }
   }
 

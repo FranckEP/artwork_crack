@@ -24,21 +24,11 @@ class PasswordAuth implements AuthInterface {
       var userCredential = 
       await FirebaseAuth.instance
           .signInWithEmailAndPassword(email: email, password: password);
-          /*FirestoreDatabase firestoreDatabase = Get.find();
+          FirestoreDatabase firestoreDatabase = Get.find();
            var doc = await firestoreDatabase.getDocWithId(colletionName: 'users', idDoc: userCredential.user!.uid);
-          return UserModel.fromJson(doc!);*/
+          return UserModel.fromJson(doc!);
     } on FirebaseAuthException catch (e) {
-      if (e.code == 'user-not-found') {
-        Get.snackbar(
-          "Usuario no encontrado",
-          "No se encontró un usuario que use ese email.",
-        );
-      } else if (e.code == 'wrong-password') {
-        Get.snackbar(
-          "Contraseña equivocada",
-          "La contraseña proveida por el usuario no es correcta.",
-        );
-      }
+      return Future.error(e.code);
     }
   }
 
@@ -67,17 +57,7 @@ class PasswordAuth implements AuthInterface {
       firestoreDatabase.add(collectionPath: 'users', data: doc);
       return true;
     } on FirebaseAuthException catch (e) {
-      if (e.code == 'weak-password') {
-        Get.snackbar(
-          "Contraseña insegura",
-          "La seguridad de la contraseña es muy débil",
-        );
-      } else if (e.code == 'email-already-in-use') {
-        Get.snackbar(
-          "Email inválido",
-          "Ya existe un usuario con este correo electrónico.",
-        );
-      }
+      return Future.error(e.code);
     } catch (e) {
       log(e.toString());
     }
