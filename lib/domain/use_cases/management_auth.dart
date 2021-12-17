@@ -1,6 +1,8 @@
 
+import 'package:artwork_crack/data/repositories/firestore_database.dart';
 import 'package:artwork_crack/data/repositories/password_auth.dart';
 import 'package:artwork_crack/domain/models/user.dart';
+import 'package:get/get.dart';
 
 class AuthManagement {
   PasswordAuth auth = PasswordAuth();
@@ -37,4 +39,17 @@ class AuthManagement {
       rethrow;
     }
   }
+
+  Future<List<UserModel>> extractAllUsers() async{
+    try {
+      List<UserModel> users = [];
+      FirestoreDatabase database = Get.find();
+      var doc = await database.readCollection(collectionPath: 'users');
+      for (var user in doc) {
+        users.add(UserModel.fromJson(user['data']));
+      } return users;
+    } catch (e) {
+      return Future.error(e);
+    }
+  } 
 }

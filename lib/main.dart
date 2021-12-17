@@ -1,5 +1,6 @@
 import 'dart:developer';
 
+import 'package:artwork_crack/data/repositories/chat/realtime_database.dart';
 import 'package:artwork_crack/data/repositories/firestore_database.dart';
 import 'package:artwork_crack/data/services/locationservice.dart';
 import 'package:artwork_crack/domain/models/location.dart';
@@ -38,6 +39,7 @@ void main()async {
   Get.put(FirestoreDatabase());
   Get.put(AuthController());
   Get.put(UIController());
+  Get.put(RealTimeChat());
   
   PermissionsController permissionsController =
         Get.put(PermissionsController());

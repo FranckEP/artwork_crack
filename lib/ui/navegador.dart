@@ -4,16 +4,13 @@ import 'package:artwork_crack/domain/use_cases/controllers/ui.dart';
 import 'package:artwork_crack/ui/custom.dart';
 import 'package:artwork_crack/ui/pages/content/a%C3%B1adir_estado/add.dart';
 import 'package:artwork_crack/ui/pages/content/arte_social/artesocial.dart';
+import 'package:artwork_crack/ui/pages/content/chats/chat_screen.dart';
 import 'package:artwork_crack/ui/pages/content/estados/estados.dart';
-import 'package:artwork_crack/ui/pages/content/mensajes/chat_page.dart';
-import 'package:artwork_crack/ui/pages/content/mensajes/listchat.dart';
 import 'package:artwork_crack/ui/pages/content/menu/menu.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
 import 'package:get/get_instance/src/extension_instance.dart';
-
-import 'pages/content/añadir_estado/widgets/cont_add.dart';
 
 class ContentPage extends StatefulWidget {
   const ContentPage({Key? key}) : super(key: key);
@@ -36,7 +33,7 @@ class _ContentPageState extends State<ContentPage> {
 
   static const List<Widget> _widgetOptions = <Widget>[
     Estados(),
-    ChatListPageView(),
+    UserMessages(),
     add(),
     arteSocial(),
     Menu(),

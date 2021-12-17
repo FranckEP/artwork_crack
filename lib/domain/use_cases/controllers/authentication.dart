@@ -38,6 +38,14 @@ class AuthController extends GetxController {
     }
   }
 
+  Future<List<UserModel>> extractAllUser()async{
+    try {
+      return await _manager.extractAllUsers();
+    } catch (e) {
+      return Future.error(e);
+    }
+  }
+
   set currentUser(UserModel? userAuth) {
     _currentUser.value = userAuth;
     _authenticated.value = userAuth != null;
