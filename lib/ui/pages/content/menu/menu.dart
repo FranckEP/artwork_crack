@@ -35,12 +35,12 @@ class _Menu extends State<Menu> {
           image: DecorationImage(
             image: AssetImage("assets/images/logo.png"),))),
       const SizedBox(height: 10),
-      ElevatedButton(
-        onPressed: () {
+      // ElevatedButton(
+      //   onPressed: () {
           
-        },
-        child: const Text('Ver perfíl', style: TextStyle(fontSize: 20)),
-      ),
+      //   },
+      //   child: const Text('Ver perfíl', style: TextStyle(fontSize: 20)),
+      // ),
       const SizedBox(height: 10),
       ElevatedButton(
         onPressed: () { 

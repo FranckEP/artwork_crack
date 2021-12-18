@@ -15,11 +15,10 @@ class add extends StatelessWidget {
     AuthController authController = Get.find();
 
     return Scaffold(
-      floatingActionButton: Positioned(
-        width: MediaQuery.of(context).size.width,
+      floatingActionButton: Center(
         child: Row(children: <Widget>[
           const SizedBox(
-            width: 90,
+            width: 180, height: 10,
           ),
           FloatingActionButton(
             onPressed: () {
@@ -31,7 +30,7 @@ class add extends StatelessWidget {
               );
               contentEditController.text = '';
             },
-            child: const Icon(Icons.add),
+            child: const Icon(Icons.add, size: 45,),
           ),
         ]),
       ),

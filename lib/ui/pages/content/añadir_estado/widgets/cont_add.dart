@@ -15,14 +15,15 @@ class ContAdd extends StatelessWidget {
   
   @override 
   Widget build(BuildContext context){
-    return Column(
+    return Column( 
           children: [
+            const SizedBox(height: 20,),
             Card(
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 crossAxisAlignment: CrossAxisAlignment.stretch,
                   children: [
-                  TextField(
+                  TextField( style: const TextStyle(height: 7), 
                     key: textFieldKey, controller: controllerEdit,
                     decoration: InputDecoration(
                         fillColor: Colors.transparent,

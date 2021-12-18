@@ -20,8 +20,7 @@ class MyApp extends StatelessWidget {
             .ligthTheme, // Apply the theme referenced by the theme property on
         // MaterialApp
         darkTheme:
-            MyTheme.darkTheme, // Apply the theme referenced by the darkTheme
-        // property on MaterialApp
+            MyTheme.darkTheme, 
         themeMode:
             ThemeMode.system,
     );

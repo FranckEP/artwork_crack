@@ -67,9 +67,9 @@ class _State extends State<UserMessages> {
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
-        Get.to(() => SelectUser());
+        Get.to(() => const SelectUser());
       },
-      child: Icon(Icons.add_comment),),
+      child: const Icon(Icons.add_comment),),
     );
   }
 }
