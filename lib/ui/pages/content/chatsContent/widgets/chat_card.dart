@@ -39,7 +39,7 @@ class ChatCard extends StatelessWidget {
           padding: const EdgeInsets.only(bottom: 4.0),
           child: Text(
             name,
-            style: Theme.of(context).textTheme.headline4,
+            style: Theme.of(context).textTheme.headline2,
           ),
         ),
         subtitle: Text(

@@ -10,10 +10,14 @@ class AuthController extends GetxController {
   final _nameUser = "".obs;
   late AuthManagement _manager;
   var isLogged = false.obs;
+  late Rx<dynamic> _uid = "".obs;
+  late Rx<dynamic> _photo = "".obs;
 
+  String get uid => _uid.value;
+  String get photo => _photo.value;
   String get nameUser => _nameUser.value;
 
-  AuthController(){
+  AuthController() {
     _manager = Get.find();
     getLoggedUser();
   }
@@ -25,11 +29,11 @@ class AuthController extends GetxController {
     guardarUser(userCredential!);
   }
 
-  guardarUser(String usuario){
+  guardarUser(String usuario) {
     _nameUser.value = usuario;
   }
 
-  getLoggedUser()async{
+  getLoggedUser() async {
     try {
       _currentUser.value = await _manager.getLoggedUser();
       isLogged.value = true;
@@ -39,7 +43,7 @@ class AuthController extends GetxController {
     }
   }
 
-  Future<List<UserModel>> extractAllUser()async{
+  Future<List<UserModel>> extractAllUser() async {
     try {
       return await _manager.extractAllUsers();
     } catch (e) {
@@ -68,10 +72,14 @@ class AuthController extends GetxController {
 
   Future<void> login(email, password) async {
     try {
-        _currentUser.value = await _manager.signIn(email: email, password: password);
-        print('OK');
-        isLogged.value = true;
-        print(_currentUser.value!.toJson());
+      _currentUser.value =
+          await _manager.signIn(email: email, password: password);
+      print('OK');
+      isLogged.value = true;
+      _uid.value = currentUser!.id;
+      _photo.value =
+          'https://uifaces.co/our-content/donated/wteXSjwk.jpg';
+      print(_currentUser.value!.toJson());
     } catch (e) {
       isLogged.value = false;
       return Future.error(e);
@@ -81,9 +89,13 @@ class AuthController extends GetxController {
 
   Future<void> signUp({name, email, password}) async {
     try {
-     await _manager.signUp(name: name, email: email, password: password);
+      await _manager.signUp(name: name, email: email, password: password);
+      _uid.value = currentUser!.id;
+      _photo.value =
+          'https://uifaces.co/our-content/donated/wteXSjwk.jpg';
     } catch (e) {
-      Get.snackbar('Error en el registro', 'No ha sido posible conectar tus datos');
+      Get.snackbar(
+          'Error en el registro', 'No ha sido posible conectar tus datos');
       return Future.error(e);
     }
   }

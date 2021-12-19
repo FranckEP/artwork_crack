@@ -28,7 +28,7 @@ class CustomAppBar extends AppBar {
           shadowColor: Colors.transparent,
           actions: <Widget>[
             IconButton(onPressed:() {
-              Get.to(() => LocationScreen());}, 
+              Get.to(() => Locations());}, 
             icon: const Icon(Icons.location_pin))
           ]
         );

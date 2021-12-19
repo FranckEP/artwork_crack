@@ -5,6 +5,7 @@ import 'package:artwork_crack/domain/use_cases/management_chat.dart';
 import 'package:artwork_crack/ui/pages/chatPage/chat_page.dart';
 import 'package:artwork_crack/ui/pages/content/chatsContent/widgets/chat_card.dart';
 import 'package:artwork_crack/ui/pages/content/chatsContent/widgets/select_user.dart';
+import 'package:artwork_crack/ui/pages/content/ubicacion/widgets/custom_location.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';

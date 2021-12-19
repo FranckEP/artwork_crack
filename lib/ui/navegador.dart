@@ -2,10 +2,10 @@ import 'package:artwork_crack/domain/use_cases/controllers/authentication.dart';
 import 'package:artwork_crack/domain/use_cases/controllers/logincontroller.dart';
 import 'package:artwork_crack/domain/use_cases/controllers/ui.dart';
 import 'package:artwork_crack/ui/custom.dart';
-import 'package:artwork_crack/ui/pages/content/a%C3%B1adir_estado/add.dart';
+import 'package:artwork_crack/ui/pages/content/a%C3%B1adir_estado/add_states.dart';
 import 'package:artwork_crack/ui/pages/content/arte_social/artesocial.dart';
 import 'package:artwork_crack/ui/pages/content/chatsContent/user_messages1.dart';
-import 'package:artwork_crack/ui/pages/content/estados/estados.dart';
+import 'package:artwork_crack/ui/pages/content/estados/states_screen.dart';
 import 'package:artwork_crack/ui/pages/content/menu/menu.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -31,10 +31,10 @@ class _ContentPageState extends State<ContentPage> {
   Color poggers = CustomAppBar.pog;
   static Color two = Colors.orange.withOpacity(0.5);
 
-  static const List<Widget> _widgetOptions = <Widget>[
-    Estados(),
+  static final List<Widget> _widgetOptions = <Widget>[
+    ListaEstados(),
     UserMessages(),
-    add(),
+    AgregarEstado(),
     arteSocial(),
     Menu(),
   ];

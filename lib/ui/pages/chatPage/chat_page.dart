@@ -5,6 +5,7 @@ import 'package:artwork_crack/domain/use_cases/controllers/authentication.dart';
 import 'package:artwork_crack/domain/use_cases/controllers/ui.dart';
 import 'package:artwork_crack/domain/use_cases/management_chat.dart';
 import 'package:artwork_crack/ui/pages/chatPage/chat_screen.dart';
+import 'package:artwork_crack/ui/pages/content/ubicacion/widgets/custom_location.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -18,17 +19,19 @@ class ChatPage extends StatelessWidget {
     manager = ChatManager();
   }
 
-  // Dependency injection: State management controller
   late final AuthController controller = Get.find();
   late final UIController uiController = Get.find();
 
-  // We only define one AppBar, and one scaffold.
   @override
   Widget build(BuildContext context) {
     UserModel? currentUser = controller.currentUser;
-    // print(
-    //     'ChatPage ${currentUser!.email.toString()} ${remoteUser!.email.toString()}');
+    UserModel user =
+                    chat!.getTargetUser(controller.currentUser!.email);
     return Scaffold(
+      appBar: CustomAppBarLocation(
+          context: context,
+          tile: Text(user.name),
+          picUrl: user.pictureUrl),
       body: SafeArea(
         child: AnimatedSwitcher(
           duration: const Duration(milliseconds: 500),
@@ -47,7 +50,8 @@ class ChatPage extends StatelessWidget {
                     await manager.updateChat(loadedChat);
                   },
                   onSend: (String message) async {
-                    print('ultimo mensaje enviado'+ currentUser.email + message);
+                    print(
+                        'ultimo mensaje enviado' + currentUser.email + message);
                     ChatMessage lastMessage = ChatMessage(
                         message: message, sender: currentUser.email);
                     loadedChat.lastMessage = lastMessage;
