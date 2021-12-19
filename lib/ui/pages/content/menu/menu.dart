@@ -13,13 +13,14 @@ class Menu extends StatefulWidget {
 
 class _Menu extends State<Menu> {
   AuthController authenticationController = Get.find();
-  _logout() async {
-    try {
-      await authenticationController.logOut();
-    } catch (e) {
-      print(e);
-    }
-  }
+  // _logout() async {
+  //   try {
+  //     print('cerrando sesion');
+  //     await authenticationController.logOut();
+  //   } catch (e) {
+  //     print(e);
+  //   }
+  // }
 
   Color poggers = CustomAppBar.pog;
   static Color two = Colors.orange.withOpacity(0.5);
@@ -53,7 +54,7 @@ class _Menu extends State<Menu> {
       const SizedBox(height: 10),
       ElevatedButton(
         onPressed: () {
-          _logout();
+         authenticationController.logOut();
         },
         child: const Text('Cerrar sesión', style: TextStyle(fontSize: 20)),
       )

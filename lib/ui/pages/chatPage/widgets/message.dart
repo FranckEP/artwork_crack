@@ -31,7 +31,7 @@ class MessageBubble extends StatelessWidget {
 
     return Row(
       mainAxisAlignment:
-          remote ? MainAxisAlignment.start : MainAxisAlignment.end,
+          remote ? MainAxisAlignment.end : MainAxisAlignment.start,
       children: [
         GestureDetector(
           child: ConstrainedBox(
@@ -54,8 +54,8 @@ class MessageBubble extends StatelessWidget {
                 child: Column(
                   mainAxisSize: MainAxisSize.min,
                   crossAxisAlignment: remote
-                      ? CrossAxisAlignment.start
-                      : CrossAxisAlignment.end,
+                      ? CrossAxisAlignment.end
+                      : CrossAxisAlignment.start,
                   children: [
                     Text(
                       message,
@@ -87,7 +87,7 @@ class MessageBubble extends StatelessWidget {
     if (messageTime.isAfter(window)) {
       formatter = DateFormat('hh:mm a');
     } else {
-      formatter = DateFormat('dd/MM/yyyy');
+      formatter = DateFormat('MMMM/dd/yyyy');
     }
     return formatter.format(messageTime);
   }

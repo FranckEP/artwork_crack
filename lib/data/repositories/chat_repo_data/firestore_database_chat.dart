@@ -1,6 +1,5 @@
+import 'package:artwork_crack/data/repositories/firestore_database.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
-
-import '../firestore_database.dart';
 
 class FirestoreChat extends FirestoreDatabase {
   // This file refers to the management of the chat previews (records)
@@ -28,6 +27,7 @@ class FirestoreChat extends FirestoreDatabase {
         .where('users.${emailB.replaceAll('.', '')}', isEqualTo: true)
         .get();
     final docs = super.extractDocs(snapshot);
+    print('checkIfRecordExist ${docs.length}');
     return docs.isNotEmpty ? docs.first : null;
   }
 

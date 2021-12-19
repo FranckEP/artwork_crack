@@ -1,13 +1,13 @@
-import 'package:artwork_crack/domain/models/mensaje.dart';
+import 'package:artwork_crack/domain/models/message.dart';
 import 'package:artwork_crack/domain/models/user.dart';
 
-class Chat {
+class ChatModel {
   UserModel userA, userB;
   ChatMessage lastMessage;
   String? reference;
   String? recordReference;
 
-  Chat({
+  ChatModel({
     required this.userA,
     required this.userB,
     required this.lastMessage,
@@ -15,6 +15,7 @@ class Chat {
     this.recordReference,
   });
 
+// Muestra aas tarjetas de los diferentes usurios en la  vista del chat
   UserModel getTargetUser(String email) {
     if (userA.email != email) {
       return userA;
@@ -23,9 +24,9 @@ class Chat {
     }
   }
 
-  factory Chat.fromJson(Map<String, dynamic> map) {
+  factory ChatModel.fromJson(Map<String, dynamic> map) {
     final data = map['data'];
-    return Chat(
+    return ChatModel(
       userA: UserModel.fromJson(data['userA']),
       userB: UserModel.fromJson(data['userB']),
       lastMessage: ChatMessage.fromJson(data['lastMessage']),

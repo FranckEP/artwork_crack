@@ -1,7 +1,7 @@
-import 'package:artwork_crack/domain/models/mensaje.dart';
-import 'package:artwork_crack/domain/use_cases/management_mensaje.dart';
-import 'package:artwork_crack/ui/pages/chat/widgets/message.dart';
-import 'package:artwork_crack/ui/pages/chat/widgets/option.dart';
+import 'package:artwork_crack/domain/models/message.dart';
+import 'package:artwork_crack/domain/use_cases/management_chat.dart';
+import 'package:artwork_crack/ui/pages/chatPage/widgets/message.dart';
+import 'package:artwork_crack/ui/pages/chatPage/widgets/option.dart';
 import 'package:firebase_database/firebase_database.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -60,7 +60,7 @@ class _State extends State<ChatView> {
                     itemBuilder: (context, index) {
                       ChatMessage message = items[index];
                       return MessageBubble(
-                        remote: message.sender != widget.localEmail,
+                        remote: message.sender == widget.localEmail,
                         message: message.message,
                         time: message.timestamp!,
                         onHold: () {
@@ -88,7 +88,7 @@ class _State extends State<ChatView> {
                 }
 
                 // By default, show a loading spinner.
-                return const Center(child: CircularProgressIndicator());
+                return const Center(child: Text('ChatView spinnig'));
               },
             ),
           ),

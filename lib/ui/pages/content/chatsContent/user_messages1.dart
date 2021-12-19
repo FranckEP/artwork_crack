@@ -1,10 +1,10 @@
-import 'package:artwork_crack/domain/models/chat.dart';
+import 'package:artwork_crack/domain/models/chat_model.dart';
 import 'package:artwork_crack/domain/models/user.dart';
 import 'package:artwork_crack/domain/use_cases/controllers/authentication.dart';
-import 'package:artwork_crack/domain/use_cases/management_mensaje.dart';
-import 'package:artwork_crack/ui/pages/chat/chat_page.dart';
-import 'package:artwork_crack/ui/pages/content/chats/widgets/chat_card.dart';
-import 'package:artwork_crack/ui/pages/content/chats/widgets/select_user.dart';
+import 'package:artwork_crack/domain/use_cases/management_chat.dart';
+import 'package:artwork_crack/ui/pages/chatPage/chat_page.dart';
+import 'package:artwork_crack/ui/pages/content/chatsContent/widgets/chat_card.dart';
+import 'package:artwork_crack/ui/pages/content/chatsContent/widgets/select_user.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -41,7 +41,7 @@ class _State extends State<UserMessages> {
             return ListView.builder(
               itemCount: items.length,
               itemBuilder: (context, index) {
-                Chat chat = items[index];
+                ChatModel chat = items[index];
                 UserModel user =
                     chat.getTargetUser(controller.currentUser!.email);
                 return ChatCard(
@@ -50,9 +50,9 @@ class _State extends State<UserMessages> {
                   message: chat.lastMessage.message,
                   time: '',
                   onTap: () {
-                    Get.to(
-                      () => ChatPage(chat: chat),
-                    );
+                    print('${chat.userA}');
+                    print('${chat.userB}');
+                    Get.to(() => ChatPage(chat: chat));
                   },
                 );
               },
@@ -67,9 +67,10 @@ class _State extends State<UserMessages> {
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
-        Get.to(() => const SelectUser());
-      },
-      child: const Icon(Icons.add_comment),),
+          Get.to(() => SelectUser());
+        },
+        child: Icon(Icons.add_comment),
+      ),
     );
   }
 }

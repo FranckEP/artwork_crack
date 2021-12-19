@@ -36,7 +36,7 @@ class AuthManagement {
     try {
       return await auth.signOut();
     } catch (e) {
-      rethrow;
+      return Future.error(e);
     }
   }
 

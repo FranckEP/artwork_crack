@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:intl/intl.dart';
 
 class ChatCard extends StatelessWidget {
   final String pictureUrl, name, message;
@@ -23,7 +22,8 @@ class ChatCard extends StatelessWidget {
     return Card(
       child: ListTile(
         dense: true,
-        contentPadding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0),
+        contentPadding:
+            const EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0),
         leading: SizedBox(
           height: 42.0,
           width: 42.0,
@@ -39,7 +39,7 @@ class ChatCard extends StatelessWidget {
           padding: const EdgeInsets.only(bottom: 4.0),
           child: Text(
             name,
-            style: Theme.of(context).textTheme.headline2,
+            style: Theme.of(context).textTheme.headline4,
           ),
         ),
         subtitle: Text(
@@ -57,6 +57,4 @@ class ChatCard extends StatelessWidget {
       ),
     );
   }
-
-
 }

@@ -1,9 +1,9 @@
-import 'package:artwork_crack/data/repositories/chat/realtime_database.dart';
-import 'package:artwork_crack/domain/models/mensaje.dart';
+import 'package:artwork_crack/data/repositories/chat_repo_data/realtime_database.dart';
+import 'package:artwork_crack/domain/models/message.dart';
 import 'package:artwork_crack/domain/models/user.dart';
 import 'package:artwork_crack/domain/use_cases/controllers/authentication.dart';
-import 'package:artwork_crack/ui/pages/chat/chat_page.dart';
-import 'package:artwork_crack/ui/pages/content/chats/widgets/chat_card.dart';
+import 'package:artwork_crack/ui/pages/chatPage/chat_page.dart';
+import 'package:artwork_crack/ui/pages/content/chatsContent/widgets/chat_card.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:intl/intl.dart';
@@ -16,15 +16,15 @@ class SelectUser extends StatefulWidget {
 }
 
 class _State extends State<SelectUser> {
-  AuthController authController = Get.find();
+  AuthController authenticationController = Get.find();
   getUser() async {
-    return authController.extractAllUser();
+    return authenticationController.extractAllUser();
   }
 
   createChat(remoteUser, localUser, date) async {
     String reference = await realTimeChat.createChat(
         message: ChatMessage(message: '', sender: localUser.email).toJson());
-    print(reference);
+    //print(reference);
   }
 
   RealTimeChat realTimeChat = Get.find();
@@ -38,7 +38,7 @@ class _State extends State<SelectUser> {
           builder: (context, snapshot) {
             if (snapshot.connectionState == ConnectionState.done) {
               if (snapshot.data == null) {
-                return const Text('No hay usuarios');
+                return Center(child: Text('No hay usuarios'));
               } else {
                 users = snapshot.data as List<UserModel>;
                 DateFormat format = DateFormat('MMMM-dd-yyyy / hh:mm a');
@@ -47,16 +47,16 @@ class _State extends State<SelectUser> {
                 return ListView.builder(
                     itemCount: users.length,
                     itemBuilder: (context, index) {
-                      print(users[index]);
-                      createChat(
-                          users[index], authController.currentUser, date);
+                      //print(users[index]);
+                      createChat(users[index],
+                          authenticationController.currentUser, date);
                       return ChatCard(
                         message: '',
                         name: users[index].name,
                         onTap: () {
                           Get.back();
                           Get.to(() => ChatPage(
-                                localUser: authController.currentUser,
+                                localUser: authenticationController.currentUser,
                                 remoteUser: users[index],
                               ));
                         },
@@ -66,7 +66,7 @@ class _State extends State<SelectUser> {
                     });
               }
             }
-            return const CircularProgressIndicator();
+            return CircularProgressIndicator();
           }),
     );
   }

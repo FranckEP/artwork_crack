@@ -1,9 +1,11 @@
-import 'package:artwork_crack/data/repositories/chat/firestore_database.dart';
-import 'package:artwork_crack/data/repositories/chat/realtime_database.dart';
-import 'package:artwork_crack/domain/models/chat.dart';
-import 'package:artwork_crack/domain/models/mensaje.dart';
+import 'package:artwork_crack/data/repositories/chat_repo_data/firestore_database_chat.dart';
+import 'package:artwork_crack/data/repositories/chat_repo_data/realtime_database.dart';
+import 'package:artwork_crack/domain/models/chat_model.dart';
+import 'package:artwork_crack/domain/models/message.dart';
+import 'package:artwork_crack/domain/models/user.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_database/firebase_database.dart';
+
 class ChatManager {
   FirestoreChat firestore = FirestoreChat();
   RealTimeChat realtime = RealTimeChat();
@@ -14,12 +16,20 @@ class ChatManager {
     return firestore.getChatRecords(localEmail);
   }
 
-  Future<Chat?> checkIfChatExist(String emailA, String emailB) async {
+  Future<ChatModel?> checkIfChatExist(
+      String emailA, String emailB, UserModel local, UserModel remote) async {
+    print("ChatManager checkIfChatExist");
     final chat = await firestore.checkIfRecordExist(emailA, emailB);
-    return chat != null ? Chat.fromJson(chat) : null;
+    return chat != null
+        ? ChatModel.fromJson(chat)
+        : ChatModel(
+            userA: local,
+            userB: remote,
+            lastMessage: ChatMessage(message: '', sender: ''),
+          );
   }
 
-  Future<String> createChat(Chat chat) async {
+  Future<String> createChat(ChatModel chat) async {
     final chatReference =
         await realtime.createChat(message: chat.lastMessage.toJson());
     chat.reference = chatReference;
@@ -27,21 +37,21 @@ class ChatManager {
     return chatReference;
   }
 
-  Future<void> updateChat(Chat chat) async {
+  Future<void> updateChat(ChatModel chatModel) async {
     await firestore.updateChatRecord(
-        recordPath: chat.recordReference!, chat: chat.toJson());
+        recordPath: chatModel.recordReference!, chat: chatModel.toJson());
   }
 
-  List<Chat> extractChats(QuerySnapshot<Map<String, dynamic>> snapshot) {
+  List<ChatModel> extractChats(QuerySnapshot<Map<String, dynamic>> snapshot) {
     final chatsData = firestore.extractDocs(snapshot);
     return _extractChatInstances(chatsData);
   }
 
-  List<Chat> _extractChatInstances(List<Map<String, dynamic>> data) {
-    List<Chat> chats = [];
+  List<ChatModel> _extractChatInstances(List<Map<String, dynamic>> data) {
+    List<ChatModel> chats = [];
     for (var chat in data) {
       chats.add(
-        Chat.fromJson(chat),
+        ChatModel.fromJson(chat),
       );
     }
     return chats;
@@ -53,10 +63,11 @@ class ChatManager {
     return realtime.connectChat(chatPath: chatReference);
   }
 
-  Future<void> sendMessage(Chat chat) async {
+  Future<void> sendMessage(ChatModel chatModel) async {
     await realtime.sendMessage(
-        chatPath: chat.reference!, message: chat.lastMessage.toJson());
-    await updateChat(chat);
+        chatPath: chatModel.reference!,
+        message: chatModel.lastMessage.toJson());
+    await updateChat(chatModel);
   }
 
   Future<void> deleteMessage(String chatReference, ChatMessage message) async {

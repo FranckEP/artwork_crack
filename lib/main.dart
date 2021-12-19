@@ -1,6 +1,6 @@
 import 'dart:developer';
 
-import 'package:artwork_crack/data/repositories/chat/realtime_database.dart';
+import 'package:artwork_crack/data/repositories/chat_repo_data/realtime_database.dart';
 import 'package:artwork_crack/data/repositories/firestore_database.dart';
 import 'package:artwork_crack/data/services/locationservice.dart';
 import 'package:artwork_crack/domain/models/location.dart';
@@ -13,6 +13,7 @@ import 'package:artwork_crack/domain/use_cases/controllers/authentication.dart';
 import 'package:artwork_crack/domain/use_cases/controllers/status_control.dart';
 import 'package:artwork_crack/domain/use_cases/controllers/ui.dart';
 import 'package:artwork_crack/domain/use_cases/management_auth.dart';
+import 'package:artwork_crack/domain/use_cases/management_chat.dart';
 import 'package:artwork_crack/domain/use_cases/management_location.dart';
 import 'package:artwork_crack/domain/use_cases/management_permiso.dart';
 import 'package:artwork_crack/domain/use_cases/management_states.dart';
@@ -40,6 +41,7 @@ void main()async {
   Get.put(AuthController());
   Get.put(UIController());
   Get.put(RealTimeChat());
+  Get.put(ChatManager());
   
   PermissionsController permissionsController =
         Get.put(PermissionsController());

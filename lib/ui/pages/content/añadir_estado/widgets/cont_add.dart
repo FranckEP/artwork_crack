@@ -16,27 +16,30 @@ class ContAdd extends StatelessWidget {
   @override 
   Widget build(BuildContext context){
     return Column( 
-          children: [
-            const SizedBox(height: 20,),
-            Card(
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                crossAxisAlignment: CrossAxisAlignment.stretch,
-                  children: [
-                  TextField( style: const TextStyle(height: 7), 
-                    key: textFieldKey, controller: controllerEdit,
-                    decoration: InputDecoration(
-                        fillColor: Colors.transparent,
-                        filled: true,
-                        hintText: "¡Escribe tú nuevo estado aquí!",
-                        border: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(10),
-                        )),
-                  ),
-                ]
+            children: [
+              const SizedBox(height: 20,),
+              Card(
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  crossAxisAlignment: CrossAxisAlignment.stretch,
+                    children: [
+                    TextField(
+                      textCapitalization: TextCapitalization.sentences,
+                      maxLines: null,
+                      style: const TextStyle(height:2, ), 
+                      key: textFieldKey, controller: controllerEdit,
+                      decoration: InputDecoration(
+                          fillColor: Colors.transparent,
+                          filled: true,
+                          hintText: "¡Escribe tú nuevo estado aquí!",
+                          border: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(10),
+                          )),
+                    ),
+                  ]
+                ),
               ),
-            ),
-          ]
-        );
+            ]
+    );
   }
 }

@@ -1,18 +1,15 @@
-import 'package:artwork_crack/domain/models/chat.dart';
-import 'package:artwork_crack/domain/models/mensaje.dart';
+import 'package:artwork_crack/domain/models/chat_model.dart';
+import 'package:artwork_crack/domain/models/message.dart';
 import 'package:artwork_crack/domain/models/user.dart';
 import 'package:artwork_crack/domain/use_cases/controllers/authentication.dart';
 import 'package:artwork_crack/domain/use_cases/controllers/ui.dart';
-import 'package:artwork_crack/domain/use_cases/management_mensaje.dart';
-import 'package:artwork_crack/ui/custom.dart';
-import 'package:artwork_crack/ui/pages/chat/chat_screen.dart';
-import 'package:firebase_auth/firebase_auth.dart';
+import 'package:artwork_crack/domain/use_cases/management_chat.dart';
+import 'package:artwork_crack/ui/pages/chatPage/chat_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-
 class ChatPage extends StatelessWidget {
-  final Chat? chat;
+  final ChatModel? chat;
   final UserModel? localUser, remoteUser;
   late final ChatManager manager;
 
@@ -29,25 +26,18 @@ class ChatPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     UserModel? currentUser = controller.currentUser;
-
+    // print(
+    //     'ChatPage ${currentUser!.email.toString()} ${remoteUser!.email.toString()}');
     return Scaffold(
-      appBar: CustomAppBar(
-        tile: Text(
-          remoteUser?.name ?? chat!.getTargetUser(currentUser!.email).name,
-        ),
-        picUrl: remoteUser?.pictureUrl ??
-            "https://ui-avatars.com/api/?name=${remoteUser?.name ?? 'User'}",
-        context: context,
-      ),
       body: SafeArea(
         child: AnimatedSwitcher(
           duration: const Duration(milliseconds: 500),
           // Fetching state value, with reactivity using Obx
-          child: FutureBuilder<Chat>(
+          child: FutureBuilder<ChatModel>(
             future: _loadChatRecord(),
             builder: (context, snapshot) {
               if (snapshot.hasData) {
-                Chat loadedChat = snapshot.data!;
+                ChatModel loadedChat = snapshot.data!;
                 return ChatView(
                   chatReference: loadedChat.reference,
                   manager: manager,
@@ -57,6 +47,7 @@ class ChatPage extends StatelessWidget {
                     await manager.updateChat(loadedChat);
                   },
                   onSend: (String message) async {
+                    print('ultimo mensaje enviado'+ currentUser.email + message);
                     ChatMessage lastMessage = ChatMessage(
                         message: message, sender: currentUser.email);
                     loadedChat.lastMessage = lastMessage;
@@ -75,7 +66,7 @@ class ChatPage extends StatelessWidget {
               }
 
               // By default, show a loading spinner.
-              return const Center(child: CircularProgressIndicator());
+              return const Center(child: Text('spining'));
             },
           ),
         ),
@@ -83,15 +74,15 @@ class ChatPage extends StatelessWidget {
     );
   }
 
-  Future<Chat> _loadChatRecord() async {
-    late Chat currentChat;
+  Future<ChatModel> _loadChatRecord() async {
+    late ChatModel currentChat;
     if (chat != null) {
       currentChat = chat!;
     } else {
-      Chat? retrievedChat =
-          await manager.checkIfChatExist(localUser!.email, remoteUser!.email);
+      ChatModel? retrievedChat = await manager.checkIfChatExist(
+          localUser!.email, remoteUser!.email, localUser!, remoteUser!);
       currentChat = retrievedChat ??
-          Chat(
+          ChatModel(
             userA: localUser!,
             userB: remoteUser!,
             lastMessage: ChatMessage(message: '', sender: ''),

@@ -4,7 +4,7 @@ import 'package:artwork_crack/domain/use_cases/controllers/ui.dart';
 import 'package:artwork_crack/ui/custom.dart';
 import 'package:artwork_crack/ui/pages/content/a%C3%B1adir_estado/add.dart';
 import 'package:artwork_crack/ui/pages/content/arte_social/artesocial.dart';
-import 'package:artwork_crack/ui/pages/content/chats/chat_screen.dart';
+import 'package:artwork_crack/ui/pages/content/chatsContent/user_messages1.dart';
 import 'package:artwork_crack/ui/pages/content/estados/estados.dart';
 import 'package:artwork_crack/ui/pages/content/menu/menu.dart';
 import 'package:flutter/material.dart';

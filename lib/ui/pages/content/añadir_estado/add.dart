@@ -15,11 +15,11 @@ class add extends StatelessWidget {
     AuthController authController = Get.find();
 
     return Scaffold(
-      floatingActionButton: Center(
-        child: Row(children: <Widget>[
-          const SizedBox(
-            width: 180, height: 10,
-          ),
+       floatingActionButton: //Center(
+      //   child: Row(children: <Widget>[
+      //     const SizedBox(
+      //       width: 180, height: 10,
+      //     ),
           FloatingActionButton(
             onPressed: () {
               statusController.addState(
@@ -32,8 +32,6 @@ class add extends StatelessWidget {
             },
             child: const Icon(Icons.add, size: 45,),
           ),
-        ]),
-      ),
       body: ContAdd(
         title: '',
         textFieldKey: const Key('tfc'),

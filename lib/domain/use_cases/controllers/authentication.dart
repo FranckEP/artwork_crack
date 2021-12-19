@@ -33,6 +33,7 @@ class AuthController extends GetxController {
     try {
       _currentUser.value = await _manager.getLoggedUser();
       isLogged.value = true;
+      print(_currentUser.value!.toJson());
     } catch (e) {
       isLogged.value = false;
     }
@@ -67,9 +68,10 @@ class AuthController extends GetxController {
 
   Future<void> login(email, password) async {
     try {
-        await _manager.signIn(email: email, password: password);
+        _currentUser.value = await _manager.signIn(email: email, password: password);
         print('OK');
         isLogged.value = true;
+        print(_currentUser.value!.toJson());
     } catch (e) {
       isLogged.value = false;
       return Future.error(e);
