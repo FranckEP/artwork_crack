@@ -77,8 +77,8 @@ class AuthController extends GetxController {
       print('OK');
       isLogged.value = true;
       _uid.value = currentUser!.id;
-      // _photo.value =
-      //     'https://uifaces.co/our-content/donated/wteXSjwk.jpg';
+      _photo.value =
+          'https://uifaces.co/our-content/donated/wteXSjwk.jpg';
       print(_currentUser.value!.toJson());
     } catch (e) {
       isLogged.value = false;
@@ -91,8 +91,8 @@ class AuthController extends GetxController {
     try {
       await _manager.signUp(name: name, email: email, password: password);
       _uid.value = currentUser!.id;
-      // _photo.value =
-      //     'https://uifaces.co/our-content/donated/wteXSjwk.jpg';
+      _photo.value =
+          'https://uifaces.co/our-content/donated/wteXSjwk.jpg';
     } catch (e) {
       Get.snackbar(
           'Error en el registro', 'No ha sido posible conectar tus datos');
