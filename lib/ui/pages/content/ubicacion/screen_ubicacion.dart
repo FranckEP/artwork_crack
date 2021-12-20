@@ -99,9 +99,9 @@ class _LocationsState extends State<Locations> {
                           ubicacion, controluser.uid);
 
                       displayNotification(
-                          title: 'Cerca de Mi',
+                          title: 'Cerca de Mí',
                           body:
-                              '${controlubicacion.cercanos}  Amigos a mi Ubicaion');
+                              '${controlubicacion.cercanos}  artistas cerca mi ubicación');
                     },
                     icon: Icon(Icons.ac_unit_outlined, size: 18.0),
                   )),
@@ -127,7 +127,7 @@ class _LocationsState extends State<Locations> {
                           controluser.uid,
                           controlubicacion.locationlat,
                           controlubicacion.locationlo)
-                      : Center(
+                      : const Center(
                           child: Icon(Icons.accessibility_new),
                         ),
                 )),
@@ -140,7 +140,7 @@ class _LocationsState extends State<Locations> {
           controlubicacion.obtenerubicacion();
         },
         tooltip: 'Refrescar',
-        child: FaIcon(
+        child: const FaIcon(
           FontAwesomeIcons.searchLocation,
           color: Colors.black,
         ),

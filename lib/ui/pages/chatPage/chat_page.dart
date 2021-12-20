@@ -25,13 +25,13 @@ class ChatPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     UserModel? currentUser = controller.currentUser;
-    UserModel user =
-                    chat!.getTargetUser(controller.currentUser!.email);
+    // UserModel user =
+    //                 chat!.getTargetUser(controller.currentUser!.email);
     return Scaffold(
-      appBar: CustomAppBarLocation(
-          context: context,
-          tile: Text(user.name),
-          picUrl: user.pictureUrl),
+      // appBar: CustomAppBarLocation(
+      //     context: context,
+      //     tile: Text(user.name),
+      //     picUrl: user.pictureUrl),
       body: SafeArea(
         child: AnimatedSwitcher(
           duration: const Duration(milliseconds: 500),
