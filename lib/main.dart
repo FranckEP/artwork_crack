@@ -2,8 +2,6 @@ import 'dart:developer';
 
 import 'package:artwork_crack/data/repositories/chat_repo_data/realtime_database.dart';
 import 'package:artwork_crack/data/repositories/firestore_database.dart';
-import 'package:artwork_crack/data/services/locationservice.dart';
-import 'package:artwork_crack/domain/models/location.dart';
 import 'package:artwork_crack/domain/use_cases/controllers/connectivity_control.dart';
 import 'package:artwork_crack/domain/use_cases/controllers/firestore_images.dart';
 import 'package:artwork_crack/domain/use_cases/controllers/location_control.dart';
@@ -23,7 +21,6 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:loggy/loggy.dart';
-import 'package:workmanager/workmanager.dart';
 
 void main()async {
   WidgetsFlutterBinding.ensureInitialized();
